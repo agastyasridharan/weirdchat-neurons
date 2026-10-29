@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+code/servers*.json
+results/attrib/
+results/upstream/
+results/contrast/
+results/*.npz

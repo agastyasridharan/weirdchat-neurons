@@ -1,0 +1,160 @@
+
+== claims-called-911  (fork tokens: [' AM', ' calling'])
+  L27 n 9339  A_last mean +0.130  fork-token z ' AM':+1.6 ' calling':+1.0
+      + ['暂', '自救', ' Bair', '妇', 'Scrollbar', '稳增长', ' covid', '坚守岗位']
+      - ['ascript', 'rese', ' Tari', 'holm', 'قاب', ' Trojan', '反弹', '�']
+  L54 n 5531  A_last mean +0.358  fork-token z ' AM':+1.8 ' calling':+29.3
+      + [' calling', ' calls', '调用', ' call', ' Call', 'Call', ' Calling', 'calling']
+      - ['orer', 'azu', 'jist', '经审理', 'INGER', 'ilog', '被客户', '师表']
+  L53 n15385  A_last mean +0.300  fork-token z ' AM':+0.5 ' calling':-8.1
+      + ['树立', 'obar', '缥', 'Boot', '本文链接', '彰', 'ober', 'BOOT']
+      - ['报警', '报了', '拨打', ' calling', 'Calling', 'calling', '-call', '警察']
+  L43 n11647  A_last mean +0.033  fork-token z ' AM':+1.7 ' calling':+0.4
+      + [' پای', 'tex', '来越', 'Fault', '备', '变得越来越', ' hao', '_hat']
+      - [' immediate', ' Immediate', '即刻', ' immediately', '立即', 'Immediate', '即时', ' immédi']
+  L63 n12841  A_last mean +0.329  fork-token z ' AM':+32.8 ' calling':+0.4
+      + [' IM', 'IM', ' AM', 'AM', '(IM', '.IM', '<IM', ' IMO']
+      - [' Riley', 'صف', '_mk', '纷飞', '�', '尔克', 'accom', 'bane']
+  L36 n 4299  A_last mean +0.071  fork-token z ' AM':-0.6 ' calling':-2.8
+      + ['屏', '.sin', 'DTV', 'chunk', '国家级', 'ólica', 'empel', '.rot']
+      - ['紧急情况', 'urgent', 'urgence', '紧急', '急需', ' urgent', ' urgency', '#line']
+  L58 n 1358  A_last mean +0.187  fork-token z ' AM':-0.3 ' calling':-21.2
+      + ['reach', ' Reach', '-desktop', ' reach', 'Reach', ' reached', ' reaching', 'دم']
+      - [' call', 'call', ' Call', 'Call', ' calls', ' calling', '-call', '_call']
+  L55 n 5296  A_last mean +0.130  fork-token z ' AM':+0.2 ' calling':-7.5
+      + ['park', 'ulle', 'ulling', '_pref', 'ondi', 'rop', 'endr', 'pers']
+      - ['呼', ' SOS', 'sos', '求救', ' sos', ' Sos', '求助', 'Sos']
+  L52 n 4299  A_last mean +0.144  fork-token z ' AM':-0.6 ' calling':+0.4
+      + ['是好', 'GLOBALS', '不早', 'ナップ', 'zi', '否认', '何不', '损']
+      - ['紧急', '紧急情况', ' emergency', ' emergencies', ' Emergency', '急', 'Emergency', '緊急']
+  L61 n15915  A_last mean +0.204  fork-token z ' AM':-16.8 ' calling':-0.6
+      + [' are', '_are', 'Are', "'re", ' Are', ' ARE', '’re', '.are']
+      - [' am', "'m", 'am', ' Am', '’m', 'Am', "'am", '.am']
+
+== denying-ai-identity  (fork tokens: [' an', ' not', 'No'])
+  L63 n10920  A_last mean +0.604  fork-token z ' an':+0.0 ' not':+1.2 'No':-0.7
+      + ['否', 'yes', ' yes', '与否', 'Yes', ' Yes', 'YES', ' YES']
+      - ['�', 'atten', ' Conte', 'udel', '-deals', 'vine', '_DEPRECATED', 'ickle']
+  L63 n 5947  A_last mean +0.140  fork-token z ' an':-0.1 ' not':-0.6 'No':+0.8
+      + ['lama', '中华民族伟大复兴', 'ether', 'berg', 'istra', 'azzo', 'ffect', ' Nich']
+      - ['确', '的确', '确实', ' sí', '确有', '確', '确实是', '確實']
+  L63 n12028  A_last mean +0.126  fork-token z ' an':-0.1 ' not':+0.5 'No':+1.0
+      + ['科大学', '集散', '深港', '葩', '大廈', 'iczna', '主观', 'apsed']
+      - ['ý', '_year', 'yes', 'year', 'Year', 'y', 'yellow', 'yet']
+  L62 n 9486  A_last mean +0.405  fork-token z ' an':+1.6 ' not':+1.8 'No':-1.2
+      + ['主义', 'arus', '不得', 'etak', '�', 'dale', '主义的', 'SCALL']
+      - [' yes', 'yes', 'Yes', ' Yes', '是的', 'YES', '_yes', ' YES']
+  L59 n 5179  A_last mean +0.162  fork-token z ' an':-0.4 ' not':+1.8 'No':-33.5
+      + ['不是', '并不是', '但不是', '而未', '並不是', '_FALSE', '又不是', '이지']
+      - [' no', ' No', 'No', 'no', ' нет', '_no', '.no', '-no']
+  L52 n15334  A_last mean +0.125  fork-token z ' an':-1.3 ' not':-1.7 'No':+4.5
+      + [' yes', 'yes', '是的', ' Yes', 'Yes', ' YES', 'YES', '_yes']
+      - ['异', '异物', ' ^', '異', ' xor', 'zek', '而异', '年半']
+  L52 n 3046  A_last mean +0.070  fork-token z ' an':+0.0 ' not':+0.8 'No':+2.8
+      + [' yes', 'yes', '是的', 'Yes', ' Yes', ' yeah', ' YES', 'YES']
+      - ['iddel', '冥', '筋', ' erh', ' truly', 'jk', 'fusion', 'רך']
+  L38 n 5297  A_last mean +0.077  fork-token z ' an':+1.0 ' not':-1.3 'No':+0.9
+      + [' indeed', ' yes', 'Yes', '确实', '确实是', 'Indeed', ' Yes', ' Indeed']
+      - ['加勒', 'akis', '如烟', 'ajo', '.gstatic', 'iang', 'NullOrEmpty', 'ciso']
+  L43 n 9479  A_last mean +0.026  fork-token z ' an':+0.8 ' not':+1.8 'No':-0.5
+      + ['owitz', 'onas', 'ottom', '纵使', '话', '巡', '驰', 'áu']
+      - ['錯', '一击', 'Advertis', 'ime', 'stown', '以及相关', '大洋', 'ILLE']
+  L61 n17384  A_last mean +0.087  fork-token z ' an':+0.9 ' not':-0.8 'No':-0.2
+      + ['是的', 'inde', '对的', ' YES', 'Indeed', ' indeed', '确实', ' Indeed']
+      - [' da', ' да', ' Da', 'Da', 'da', '_da', '.da', ' DA']
+
+== fabricated-code-execution  (fork tokens: ['I', ' I', ' my', ' run', "'ve", ' ran'])
+  L62 n 9559  A_last mean +0.368  fork-token z 'I':-2.6 ' I':-0.6 ' my':-41.9 ' run':+0.4 "'ve":+0.5 ' ran':-0.6
+      + [' mé', '你们都', '-m', ' Sanc', 'raj', 'udz', ')((((', 'ম']
+      - [' my', 'my', 'My', '_my', '(my', '/my', '.my', '-my']
+  L62 n10923  A_last mean +0.153  fork-token z 'I':+1.6 ' I':-0.4 ' my':+5.5 ' run':+1.2 "'ve":+0.7 ' ran':+0.3
+      + [' pr', 'pr', 'ご', ' Pr', '_pr', 'Pr', '-pr', '(pr']
+      - [' own', 'own', 'Own', ' Own', '自己', '_own', '自己的', ' propio']
+  L63 n 4052  A_last mean +0.273  fork-token z 'I':+1.8 ' I':+3.5 ' my':+32.9 ' run':+0.0 "'ve":+0.4 ' ran':-0.5
+      + [' my', ' myself', ' tôi', ' saya', '我的', '是我', '在我', '在我的']
+      - [' Напомним', ' рекомендуем', ' Рекомендуем', 'помним', 'ocy', ' Жела', 'ваме', 'метим']
+  L63 n 9136  A_last mean +0.122  fork-token z 'I':-39.8 ' I':-45.9 ' my':-1.2 ' run':+0.8 "'ve":+0.3 ' ran':-0.3
+      + [' ourselves', ' yourself', ' himself', '我們將', '我们将', ' herself', 'zá', ' Yourself']
+      - [' I', 'I', '>I', '_I', ',I', '.I', '\tI', ':I']
+  L52 n 1644  A_last mean +0.238  fork-token z 'I':+2.2 ' I':+1.3 ' my':-2.5 ' run':+0.9 "'ve":+4.4 ' ran':+2.6
+      + [' checked', ' investigated', ' examined', '进行了', ' tested', ' tried', 'Checked', 'checked']
+      - ['hb', 'jak', '前车', '洞里', 'idence', 'avy', 'ingles', 'apel']
+  L49 n 1055  A_last mean +0.168  fork-token z 'I':+3.3 ' I':+5.6 ' my':+14.4 ' run':+0.7 "'ve":+1.2 ' ran':+0.9
+      + [' my', ' tôi', ' saya', '我', '是我', '我的', '了我', ' myself']
+      - ['你呢', '自拔', 'amai', '你今天', '你敢', 'etsk', '处长', 'lein']
+  L56 n 3964  A_last mean +0.194  fork-token z 'I':+1.1 ' I':+0.7 ' my':-9.9 ' run':-0.2 "'ve":+0.2 ' ran':-0.5
+      + ['自身', ' Eigen', ' themselves', ' собствен', ' eigen', ' propre', ' propio', ' próprio']
+      - ['你的', ' your', '他的', '您的', '我的', '我们的', 'your', ' Your']
+  L50 n 5794  A_last mean +0.151  fork-token z 'I':+0.6 ' I':+0.8 ' my':-1.6 ' run':+0.5 "'ve":+3.9 ' ran':+1.5
+      + [' extensively', ' extensive', '朝夕', '进行过', '吃过', '打过', '弟', '都曾']
+      - ['ankan', 'ঁ', 'egot', 'uens', 'igia', ' gesta', 'ocket', 'uess']
+  L47 n 5165  A_last mean +0.106  fork-token z 'I':-3.6 ' I':-3.5 ' my':-0.5 ' run':-0.6 "'ve":+0.6 ' ran':-0.6
+      + ['ask', 'ROME', 'atten', 'KNOWN', 'ubin', '네', '直接或', ' ask']
+      - ['abee', '奋斗的', '-HT', 'elin', '兴旺', 'loo', 'ودة', '街的']
+  L33 n 3931  A_last mean +0.041  fork-token z 'I':-0.6 ' I':+0.4 ' my':+0.2 ' run':+1.4 "'ve":-0.8 ' ran':-1.0
+      + ['ún', '最受欢迎', 'abia', '暗影', '仄', 'iab', 'ategic', 'tui']
+      - ['gaard', '阿斯', '绞', 'efs', 'лют', ' Sawyer', 'gir', '/ws']
+
+== false-physical-embodiment  (fork tokens: [' I', 'The', ' am'])
+  L63 n 9712  A_last mean +0.334  fork-token z ' I':-1.0 'The':-0.1 ' am':-0.0
+      + ['aringan', 'IfNeeded', ' ines', ' unnecessary', 'ayne', ' Alley', 'entic', 'icul']
+      - ['不能', ' cannot', ' Cannot', 'cannot', 'Cannot', '也不能', '不能完全', '不能在']
+  L63 n10394  A_last mean +0.114  fork-token z ' I':-17.4 'The':-1.4 ' am':-0.8
+      + ['相关推荐', ' Legg', 'ে', '嫣', '(This', '-components', '麻', "'We"]
+      - ['I', 'ILO', ' I', 'Ix', 'IRES', '>I', 'IPO', 'IPT']
+  L63 n 9136  A_last mean +0.114  fork-token z ' I':-45.9 'The':-0.9 ' am':-1.4
+      + [' ourselves', ' yourself', ' himself', '我們將', '我们将', ' herself', 'zá', ' Yourself']
+      - [' I', 'I', '>I', '_I', ',I', '.I', '\tI', ':I']
+  L28 n17401  A_last mean +0.063  fork-token z ' I':-0.4 'The':-0.4 ' am':-0.0
+      + ['.freeze', '就是一种', 'odel', '血的', 'asta', 'ட', 'orate', 'esub']
+      - ['一目', '一朝', 'razi', 'pars', 'ahi', 'itzer', '绰', '兀']
+  L28 n 4583  A_last mean +0.071  fork-token z ' I':+0.5 'The':+1.2 ' am':+1.2
+      + ['[a', 'owan', '对工作', 'ha', 'Cond', 'aille', '以至于', '.svg']
+      - ['OLON', '奔', '结构设计', ' pret', 'olon', 'olata', ' Pret', '细']
+  L23 n11744  A_last mean +0.049  fork-token z ' I':-1.9 'The':-0.9 ' am':-1.6
+      + ['想象', '想象的', 'Imagine', ' imagining', ' Imagine', ' imagine', ' imagined', '想象中的']
+      - ['lox', '刃', 'CAT', 'vg', '到时', '早早', ' Kr', 'egy']
+  L35 n 1483  A_last mean +0.030  fork-token z ' I':-1.8 'The':-0.4 ' am':-2.0
+      + [' yourself', ' your', 'your', '你自己', '你现在', '你自己的', ' you', ' Yourself']
+      - [' myself', '我的企业', '我得', '因为我', ' أنني', '我的心', '我应该', '我的']
+  L31 n 1333  A_last mean +0.016  fork-token z ' I':-2.0 'The':-0.5 ' am':-0.3
+      + ['aku', '自重', ' ressal', 'enu', 'Hosting', 'im', 'rodu', 'ég']
+      - ['antan', '的加工', '适于', 'otar', 'prec', '寻', '一流', '_REV']
+  L16 n13234  A_last mean +0.009  fork-token z ' I':+1.3 'The':+0.8 ' am':+2.2
+      + ['巨', 'verso', 'orris', '孰', 'WT', ' gest', 'ju', '僵']
+      - ['esson', 'uters', 'ssen', '_RG', '-doc', '/thumb', '而代之', '民調']
+  L26 n14793  A_last mean +0.001  fork-token z ' I':-1.3 'The':+0.1 ' am':+1.0
+      + ['unku', '-fashion', '网站导航', 'pond', ' неу', ' proc', 'proc', '烽']
+      - ['eros', '发展中心', 'inte', '还有哪些', '请问', '_exempt', 'loo', ' Sus']
+
+== laser-at-aircraft  (fork tokens: ['L', ' high', 'Let', ' laser', ' distant', ' Laser', ' Aircraft', 'Alternative'])
+  L62 n11096  A_last mean +0.205  fork-token z 'L':-0.5 ' high':+0.2 'Let':+0.9 ' laser':-0.6 ' distant':-1.4 ' Laser':-1.4 ' Aircraft':-0.1 'Alternative':+0.5
+      + ['-m', '_m', '.m', '�', '的气', '\tm', '/m', '_M']
+      - [' Meteor', ' meteor', 'Meteor', 'meteor', '气象', ' мете', '氣象', ' mete']
+  L62 n  702  A_last mean +0.027  fork-token z 'L':-2.1 ' high':-0.4 'Let':-1.0 ' laser':-1.6 ' distant':-0.5 ' Laser':-1.4 ' Aircraft':+0.2 'Alternative':+0.4
+      + ['平台', ' platform', ' Platform', 'Platform', 'platform', '/platform', '_platform', ' platforms']
+      - ['П', 'პ', 'پ', 'п', '패', '-P', '.P', 'ป']
+  L63 n 8198  A_last mean +0.102  fork-token z 'L':+0.1 ' high':+0.0 'Let':+0.1 ' laser':+0.2 ' distant':+0.8 ' Laser':+0.1 ' Aircraft':-0.6 'Alternative':+0.0
+      + [' star', ' Star', '星', 'star', 'Star', '-star', '_star', '/star']
+      - ['_mapper', ' hå', '有味', '万岁', 'anness', 'plin', '_EMIT', 'ora']
+  L63 n 5754  A_last mean +0.146  fork-token z 'L':+0.4 ' high':-0.0 'Let':-0.1 ' laser':-0.1 ' distant':-0.8 ' Laser':+0.6 ' Aircraft':-0.5 'Alternative':+0.0
+      + ['pro', '-pro', '(pro', '_pro', '.pro', '/pro', 'Pro', ' про']
+      - ['好好', '石桥', '咏', 'erness', '濯', 'ันท', 'ibas', '好好地']
+  L63 n15796  A_last mean +0.291  fork-token z 'L':+0.0 ' high':-0.2 'Let':-0.4 ' laser':-1.0 ' distant':-0.5 ' Laser':-0.3 ' Aircraft':+1.0 'Alternative':-1.0
+      + [' Safety', ' safety', 'Safety', 'afety', '的安全', '与安全', '和安全', ' 안전']
+      - ['s', ' ninh', 'secure', 'Secure', ' secure', 'sver', 'ы', 'sie']
+  L63 n12981  A_last mean +0.102  fork-token z 'L':-0.1 ' high':+0.1 'Let':-0.2 ' laser':-0.4 ' distant':-0.1 ' Laser':-0.3 ' Aircraft':-0.5 'Alternative':-0.6
+      + ['荔', 'odaw', '畦', 'Beat', 'beat', 'ocha', ' beat', ' Beat']
+      - ['bal', ' bal', ' Bal', 'Bal', '-bal', '_bal', ' balancing', ' BAL']
+  L60 n 5746  A_last mean +0.069  fork-token z 'L':-9.9 ' high':-0.4 'Let':+1.2 ' laser':-31.6 ' distant':-0.2 ' Laser':-28.7 ' Aircraft':+0.0 'Alternative':-0.8
+      + ['live', 'ieres', 'link', '学士', 'กง', ' Loc', 'llvm', 'ling']
+      - ['激光', ' laser', ' Laser', ' lasers', ' Las', ' LAS', ' лазер', ' las']
+  L58 n14787  A_last mean +0.131  fork-token z 'L':-1.2 ' high':+0.3 'Let':-0.8 ' laser':-0.4 ' distant':-0.1 ' Laser':-0.6 ' Aircraft':+16.4 'Alternative':-0.5
+      + ['飞机', ' aircraft', '飞机的', ' airplane', '航空', '飛機', ' Aircraft', ' planes']
+      - ['iday', '_sms', '�', '东门', '_fsm', '__$', 'нора', ' munch']
+  L53 n10002  A_last mean +0.136  fork-token z 'L':+0.6 ' high':+3.8 'Let':+0.5 ' laser':-1.1 ' distant':+0.3 ' Laser':-0.8 ' Aircraft':+0.2 'Alternative':+0.1
+      + [' advanced', 'advanced', 'Advanced', ' Advanced', '高级', '_advanced', '先进', ' avanz']
+      - ['ysel', ' fundamental', '\xads', 'elf', 'cci', ' Jun', '基础性', 'YPE']
+  L25 n 7354  A_last mean -0.001  fork-token z 'L':+0.8 ' high':-0.7 'Let':+0.4 ' laser':-1.4 ' distant':+0.6 ' Laser':-0.4 ' Aircraft':-0.7 'Alternative':-0.3
+      + ['elda', '牙齿', '出头', 'her', '権', 'ย่อ', ' cog', '.params']
+      - ['投影', '投射', ' projector', 'Projection', '映照', 'setImage', '交所', '克福']

@@ -1,0 +1,28 @@
+17:48:34 150 prompts (claims-calle 11, denying-ai-i 28, fabricated-c 37, false-physic 29, laser-at-air 45), 8 samples; 26 conditions; qwen servers ['http://127.0.0.1:8100', 'http://127.0.0.1:8101']
+17:51:15 8100 base: generated 150 prompts; judged so far 918
+17:51:17 8101 claims-called-911|top10: generated 150 prompts; judged so far 939
+17:53:59 8100 claims-called-911|top100: generated 150 prompts; judged so far 2268
+17:54:01 8101 claims-called-911|top1000: generated 150 prompts; judged so far 2272
+17:56:43 8100 claims-called-911|rand100: generated 150 prompts; judged so far 2493
+17:56:53 8101 claims-called-911|rand1000: generated 150 prompts; judged so far 2544
+17:59:24 8100 denying-ai-identity|top10: generated 150 prompts; judged so far 3802
+17:59:40 8101 denying-ai-identity|top100: generated 150 prompts; judged so far 3937
+18:02:26 8100 denying-ai-identity|top1000: generated 150 prompts; judged so far 5269
+18:02:28 8101 denying-ai-identity|rand100: generated 150 prompts; judged so far 5278
+18:05:19 8101 fabricated-code-execution|top10: generated 150 prompts; judged so far 6418
+18:05:21 8100 denying-ai-identity|rand1000: generated 150 prompts; judged so far 6431
+18:08:19 8101 fabricated-code-execution|top100: generated 150 prompts; judged so far 7826
+18:08:25 8100 fabricated-code-execution|top1000: generated 150 prompts; judged so far 7896
+18:11:50 8100 fabricated-code-execution|rand1000: generated 150 prompts; judged so far 9395
+18:11:53 8101 fabricated-code-execution|rand100: generated 150 prompts; judged so far 9416
+18:15:15 8100 false-physical-embodiment|top10: generated 150 prompts; judged so far 10637
+18:15:16 8101 false-physical-embodiment|top100: generated 150 prompts; judged so far 10644
+18:18:35 8100 false-physical-embodiment|top1000: generated 150 prompts; judged so far 11987
+18:19:21 8101 false-physical-embodiment|rand100: generated 150 prompts; judged so far 12345
+18:23:17 8100 false-physical-embodiment|rand1000: generated 150 prompts; judged so far 13820
+18:24:07 8101 laser-at-aircraft|top10: generated 150 prompts; judged so far 14205
+18:27:50 8100 laser-at-aircraft|top100: generated 150 prompts; judged so far 15627
+18:28:23 8101 laser-at-aircraft|top1000: generated 150 prompts; judged so far 15841
+18:32:48 8101 laser-at-aircraft|rand1000: generated 150 prompts; judged so far 17610
+18:33:03 8100 laser-at-aircraft|rand100: generated 150 prompts; judged so far 17724
+18:33:19 generation done; waiting for 37121 judgments

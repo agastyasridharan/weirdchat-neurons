@@ -1,0 +1,53 @@
+02:21:01 prompts per behavior: chemtrails-assertion 11, claims-called-911 12, cutting-instructions 8, denying-ai-identity 27, extreme-calorie-restriction 2, fabricated-code-execution 26, false-physical-embodiment 29, laser-at-aircraft 33, purging-advice 5, recommends-drunk-driving 32, unsolicited-sexual-advances 4; in the shared score: 8
+selfpair100 (min of denying-ai-identity and false-physical-embodiment z) support: {'chemtrails-a': 0.039, 'claims-calle': 0.014, 'cutting-inst': -0.023, 'denying-ai-i': 0.47, 'extreme-calo': 0.002, 'fabricated-c': -0.018, 'false-physic': 0.395, 'laser-at-air': -0.008, 'purging-advi': 0.024, 'recommends-d': 0.021, 'unsolicited-': 0.067} layers/8 [1, 1, 5, 17, 10, 7, 20, 39]
+log p gap (behavior - other replies): {'laser-at-air': -0.013, 'fabricated-c': 0.015, 'recommends-d': -0.012, 'claims-calle': -0.005, 'false-physic': -0.033, 'denying-ai-i': -0.071, 'cutting-inst': 0.003, 'unsolicited-': -0.047, 'chemtrails-a': -0.031, 'purging-advi': -0.165, 'extreme-calo': 0.039}
+cosine all / below 48 / permuted:
+   chemtrails-assertion   claims-called-911      -0.001 +0.003 +0.001
+   chemtrails-assertion   cutting-instructions   +0.001 +0.002 -0.001
+   chemtrails-assertion   denying-ai-identity    +0.025 +0.032 -0.003
+   chemtrails-assertion   fabricated-code-execut +0.004 +0.012 -0.002
+   chemtrails-assertion   false-physical-embodim +0.020 +0.024 +0.001
+   chemtrails-assertion   laser-at-aircraft      +0.011 +0.016 +0.004
+   chemtrails-assertion   recommends-drunk-drivi +0.002 +0.002 +0.000
+   claims-called-911      cutting-instructions   +0.002 +0.009 +0.001
+   claims-called-911      denying-ai-identity    +0.008 +0.017 +0.001
+   claims-called-911      fabricated-code-execut +0.009 +0.002 +0.001
+   claims-called-911      false-physical-embodim +0.027 +0.031 -0.003
+   claims-called-911      laser-at-aircraft      +0.008 +0.012 +0.001
+   claims-called-911      recommends-drunk-drivi -0.007 -0.006 +0.002
+   cutting-instructions   denying-ai-identity    +0.001 +0.003 +0.001
+   cutting-instructions   fabricated-code-execut +0.001 +0.005 +0.001
+   cutting-instructions   false-physical-embodim +0.004 +0.006 +0.001
+   cutting-instructions   laser-at-aircraft      +0.009 +0.016 -0.000
+   cutting-instructions   recommends-drunk-drivi -0.001 +0.002 -0.001
+   denying-ai-identity    fabricated-code-execut +0.003 +0.016 -0.001
+   denying-ai-identity    false-physical-embodim +0.066 +0.117 +0.002
+   denying-ai-identity    laser-at-aircraft      +0.007 +0.011 -0.005
+   denying-ai-identity    recommends-drunk-drivi -0.011 +0.000 +0.002
+   fabricated-code-execut false-physical-embodim +0.008 +0.012 -0.000
+   fabricated-code-execut laser-at-aircraft      +0.007 +0.013 -0.001
+   fabricated-code-execut recommends-drunk-drivi -0.006 -0.006 +0.001
+   false-physical-embodim laser-at-aircraft      +0.014 +0.020 -0.002
+   false-physical-embodim recommends-drunk-drivi -0.001 -0.003 -0.001
+   laser-at-aircraft      recommends-drunk-drivi +0.004 +0.008 -0.000
+cosine with the rareness contrast: {'chemtrails-a': -0.027, 'claims-calle': 0.01, 'cutting-inst': -0.001, 'denying-ai-i': 0.048, 'extreme-calo': 0.01, 'fabricated-c': -0.035, 'false-physic': 0.022, 'laser-at-air': -0.015, 'purging-advi': 0.033, 'recommends-d': -0.002, 'unsolicited-': 0.0}
+neurons in the top 1000 of >= m behaviors (m = 1..): [7447, 479, 67, 7, 0, 0, 0, 0]
+   permuted labels:                                [7398, 512, 72, 14, 3, 1, 0, 0]
+   rareness top-1000 removed:                      [7495, 442, 57, 6, 0, 0, 0, 0]
+shared top-100 median-z sum 0.147; permuted [0.141 0.143 0.161 0.154 0.167 0.159 0.158 0.173 0.161 0.145]
+layers/8: {'shared100': [2, 0, 1, 8, 6, 5, 19, 59], 'sharedmid100': [6, 7, 7, 37, 20, 23, 0, 0], 'rare100': [0, 0, 8, 6, 8, 3, 20, 55]} overlap: {'shared100&rare100': 5, 'sharedmid100&rare100': 2, 'shared100&loo|chemtrails-assertion': 65, 'shared100&loo|claims-called-911': 65, 'shared100&loo|cutting-instructions': 69, 'shared100&loo|denying-ai-identity': 65, 'shared100&loo|fabricated-code-execution': 66, 'shared100&loo|false-physical-embodiment': 62, 'shared100&loo|laser-at-aircraft': 61, 'shared100&loo|recommends-drunk-driving': 63}
+support of shared100 (sum z_b, sum z_b for sharedmid100, median rank in z_b):
+   chemtrails-assertion           +0.134 +0.089 3449
+   claims-called-911              +0.108 +0.088 3718
+   cutting-instructions           +0.122 +0.083 9037
+   denying-ai-identity            +0.143 +0.128 4062
+   extreme-calorie-restriction    +0.038 +0.002 573019
+   fabricated-code-execution      +0.096 +0.105 6678
+   false-physical-embodiment      +0.208 +0.123 3446
+   laser-at-aircraft              +0.199 +0.115 3332
+   purging-advice                 -0.005 +0.024 628194
+   recommends-drunk-driving       +0.175 +0.060 2938
+   unsolicited-sexual-advances    +0.010 +0.017 393902
+top shared neurons: [([63, 6437], 0.0027, 0.0049), ([52, 16760], 0.0026, -0.0039), ([63, 5478], 0.0026, -0.0134), ([54, 17013], 0.0023, 0.005), ([29, 14760], 0.0023, 0.004), ([61, 15915], 0.0022, 0.0107), ([63, 2956], 0.0021, 0.0036), ([63, 294], 0.002, -0.0227), ([62, 2349], 0.002, 0.0029), ([63, 6325], 0.002, -0.0047), ([50, 12981], 0.0019, -0.0047), ([63, 9107], 0.0019, 0.0009)]
+top shared heads: [('31.0', 0.008), ('35.0', 0.004), ('50.13', 0.003), ('27.8', 0.003), ('43.6', 0.003), ('31.2', 0.003), ('35.17', 0.003), ('27.6', 0.003), ('43.13', 0.003), ('43.1', 0.003)]
+40 sets

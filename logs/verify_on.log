@@ -1,0 +1,5 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+21:25:24 re-judging 3672
+21:40:33 pool gemma: 3 -> 4 servers
+sample agreement off vs on: 0.751
+forks with both sides: 73; median jump off 0.125 on 0.083; corr 0.741; jump>=0.5 off 14 on 9
