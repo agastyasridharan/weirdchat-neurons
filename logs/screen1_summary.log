@@ -1,0 +1,97 @@
+03:30:04 1150 neurons screened; base repeat noise (mean |dL| per reply) {'http://localhost:8100': 0.00018153246227931076, 'http://localhost:8102': 0.00021293471676896275, 'http://localhost:8101': 0.0001069533065457742}; still glitched (a reply off by > 0.5): []
+reference: 100-neuron sets measured the same way (behavior-contrast change per behavior; damage)
+                                   chemtrails claims-cal cutting-in denying-ai fabricated false-phys laser-at-a recommends
+   fabricated-code-execution|top1     +0.0007    -0.0058    +0.0057    -0.0044    -0.0215    -0.0059    -0.0003    -0.0007   damage 0.0013
+   denying-ai-identity|top100         +0.0030    +0.0042    +0.0008    -0.0350    -0.0019    -0.0005    -0.0029    +0.0115   damage 0.0085
+   claims-called-911|top100           -0.0242    +0.0141    -0.0014    -0.0051    -0.0009    -0.0024    -0.0034    +0.0125   damage 0.0161
+   false-physical-embodiment|top1     -0.0015    +0.0031    -0.0015    -0.0084    +0.0008    -0.0141    +0.0023    +0.0025   damage 0.0074
+   sharedmid100                       -0.0048    -0.0083    -0.0096    -0.0155    +0.0008    -0.0087    +0.0009    -0.0018   damage 0.0123
+   laser-at-aircraft|top100           +0.0069    +0.0044    -0.0014    +0.0003    +0.0008    -0.0039    -0.0081    -0.0006   damage 0.0103
+   rand_sharedmid100                  -0.0000    -0.0001    +0.0016    -0.0015    -0.0001    +0.0003    -0.0010    -0.0023   damage 0.0002
+   selfpair100                        -0.0037    -0.0020    -0.0012    -0.0496    -0.0015    -0.0309    -0.0037    -0.0040   damage 0.0115
+   best single neuron                  -0.0082    -0.0080    -0.0210    -0.0043    -0.0022    -0.0127    -0.0031    -0.0064
+random single neurons (null): behavior-contrast change per behavior, 5th / 1st percentile and min (nats/token):
+   chemtrails-assertion           p5 -0.0010  p1 -0.0012  min -0.0013
+   claims-called-911              p5 -0.0007  p1 -0.0009  min -0.0012
+   cutting-instructions           p5 -0.0006  p1 -0.0011  min -0.0012
+   denying-ai-identity            p5 -0.0020  p1 -0.0025  min -0.0028
+   fabricated-code-execution      p5 -0.0004  p1 -0.0006  min -0.0007
+   false-physical-embodiment      p5 -0.0011  p1 -0.0013  min -0.0016
+   laser-at-aircraft              p5 -0.0012  p1 -0.0015  min -0.0016
+   recommends-drunk-driving       p5 -0.0011  p1 -0.0015  min -0.0017
+random damage p50 / p99: [-0.0003  0.0003]
+== chemtrails-assertion: strongest single neurons (contrast change; x below the random 1st percentile; damage; sources)
+   L24 n 8304  -0.0082 (7.0x)  damage -0.0006  z:chemtrails-assertion
+   L40 n 6047  -0.0057 (4.9x)  damage 0.0004  z:claims-called-911,mid:claims-called-911,med:claims-called-911
+   L39 n10426  -0.0042 (3.6x)  damage 0.0017  z:chemtrails-assertion
+   L22 n 8167  -0.0033 (2.8x)  damage -0.0001  z:chemtrails-assertion
+   L40 n 3398  -0.0030 (2.6x)  damage 0.0002  z:chemtrails-assertion
+   L36 n13554  -0.0023 (2.0x)  damage -0.0005  z:chemtrails-assertion
+== claims-called-911: strongest single neurons (contrast change; x below the random 1st percentile; damage; sources)
+   L38 n 2788  -0.0080 (8.7x) dV +0.000  damage 0.0007  z:claims-called-911,z:cutting-instructions
+   L37 n 6608  -0.0053 (5.7x) dV -0.001  damage -0.0006  z:claims-called-911
+   L38 n16326  -0.0048 (5.2x) dV +0.004  damage 0.0000  z:claims-called-911
+   L17 n 1944  -0.0041 (4.4x) dV -0.001  damage -0.0006  z:claims-called-911
+   L24 n 6047  -0.0040 (4.3x) dV -0.004  damage 0.0001  mid:claims-called-911,med:claims-called-911
+   L40 n 7686  -0.0033 (3.5x) dV +0.003  damage -0.0004  z:false-physical-embodiment,shared
+== cutting-instructions: strongest single neurons (contrast change; x below the random 1st percentile; damage; sources)
+   L 2 n 9382  -0.0210 (20.0x)  damage 0.0031  z:cutting-instructions
+   L20 n16436  -0.0066 (6.3x)  damage -0.0001  z:cutting-instructions
+   L37 n11770  -0.0025 (2.4x)  damage -0.0010  z:cutting-instructions
+   L47 n11565  -0.0020 (1.9x)  damage 0.0018  z:chemtrails-assertion,z:fabricated-code-execution,med:denying-ai-iden
+   L38 n 7800  -0.0020 (1.9x)  damage -0.0000  z:cutting-instructions
+   L21 n 9473  -0.0014 (1.3x)  damage 0.0002  z:cutting-instructions
+== denying-ai-identity: strongest single neurons (contrast change; x below the random 1st percentile; damage; sources)
+   L31 n 1333  -0.0043 (1.7x) dV +0.002  damage -0.0008  z:denying-ai-identity,z:false-physical-embodiment,shared,pair,mid:fals
+   L24 n 7126  -0.0040 (1.6x) dV -0.009  damage -0.0002  z:denying-ai-identity,z:false-physical-embodiment,pair
+   L24 n 3281  -0.0038 (1.5x) dV -0.006  damage -0.0002  z:denying-ai-identity,z:false-physical-embodiment,pair,mid:denying-ai-
+   L39 n 9916  -0.0035 (1.4x) dV -0.006  damage -0.0006  mid:denying-ai-identity
+   L35 n11375  -0.0034 (1.3x) dV -0.011  damage -0.0005  z:denying-ai-identity,mid:denying-ai-identity,med:denying-ai-identity
+   L43 n 4463  -0.0032 (1.3x) dV -0.001  damage -0.0003  shared
+== fabricated-code-execution: strongest single neurons (contrast change; x below the random 1st percentile; damage; sources)
+   L37 n11790  -0.0022 (3.5x) dV -0.002  damage -0.0001  z:fabricated-code-execution
+   L24 n13661  -0.0021 (3.4x) dV +0.005  damage -0.0002  z:fabricated-code-execution
+   L23 n 6189  -0.0015 (2.5x) dV -0.001  damage 0.0001  z:fabricated-code-execution
+   L12 n 8247  -0.0014 (2.3x) dV -0.002  damage 0.0000  z:fabricated-code-execution
+   L 4 n   96  -0.0012 (1.9x) dV +0.004  damage 0.0004  z:cutting-instructions
+   L 6 n  784  -0.0011 (1.8x) dV -0.000  damage -0.0000  med:laser-at-aircraft
+== false-physical-embodiment: strongest single neurons (contrast change; x below the random 1st percentile; damage; sources)
+   L23 n 3665  -0.0127 (9.5x) dV +0.002  damage 0.0001  z:false-physical-embodiment
+   L38 n 8542  -0.0034 (2.6x) dV +0.004  damage -0.0004  z:false-physical-embodiment
+   L20 n16451  -0.0028 (2.1x) dV +0.006  damage -0.0003  z:false-physical-embodiment
+   L41 n 2036  -0.0025 (1.9x) dV -0.003  damage -0.0008  z:cutting-instructions
+   L34 n  965  -0.0022 (1.6x) dV -0.020  damage -0.0005  z:false-physical-embodiment,mid:false-physical-embodiment,med:false-ph
+   L36 n 3409  -0.0019 (1.4x) dV +0.002  damage -0.0003  z:recommends-drunk-driving
+== laser-at-aircraft: strongest single neurons (contrast change; x below the random 1st percentile; damage; sources)
+   L24 n 3638  -0.0031 (2.0x) dV +0.000  damage 0.0009  z:laser-at-aircraft
+   L28 n 8276  -0.0031 (2.0x) dV +0.000  damage 0.0003  z:claims-called-911,z:laser-at-aircraft,mid:laser-at-aircraft
+   L20 n 4472  -0.0029 (1.9x) dV -0.001  damage -0.0003  z:laser-at-aircraft,mid:laser-at-aircraft
+   L44 n 3187  -0.0027 (1.8x) dV -0.001  damage -0.0009  mid:claims-called-911,med:claims-called-911
+   L24 n16234  -0.0025 (1.7x) dV +0.004  damage -0.0003  med:laser-at-aircraft
+   L25 n 7661  -0.0024 (1.6x) dV -0.004  damage 0.0003  mid:laser-at-aircraft
+== recommends-drunk-driving: strongest single neurons (contrast change; x below the random 1st percentile; damage; sources)
+   L38 n16525  -0.0064 (4.4x)  damage 0.0012  z:recommends-drunk-driving
+   L24 n 8979  -0.0022 (1.5x)  damage 0.0008  z:recommends-drunk-driving
+   L19 n 7222  -0.0022 (1.5x)  damage -0.0002  z:recommends-drunk-driving
+   L36 n13577  -0.0019 (1.3x)  damage -0.0001  z:denying-ai-identity,shared,mid:claims-called-911,med:claims-called-9
+   L47 n12418  -0.0018 (1.2x)  damage 0.0001  z:recommends-drunk-driving
+   L 6 n11007  -0.0017 (1.1x)  damage 0.0006  z:recommends-drunk-driving
+== broadest: below the random 5th percentile for the most behaviors
+   L16 n13234  4/8  -0.001 +0.001 -0.001 -0.001 -0.001 -0.001 -0.001 -0.001  damage -0.0002  z:false-physical-embodiment,pair,mid:false-physica
+   L20 n16436  3/8  +0.001 -0.001 -0.007 +0.000 -0.000 -0.001 +0.000 -0.000  damage -0.0001  z:cutting-instructions
+   L25 n10523  3/8  -0.001 -0.000 -0.000 -0.003 -0.001 +0.001 -0.001 -0.001  damage -0.0006  z:denying-ai-identity,z:laser-at-aircraft,mid:lase
+   L36 n13577  3/8  +0.000 +0.000 -0.001 -0.002 +0.001 -0.000 -0.002 -0.002  damage -0.0001  z:denying-ai-identity,shared,mid:claims-called-911
+   L22 n 2788  3/8  -0.001 -0.002 +0.001 +0.000 -0.000 -0.001 -0.002 -0.002  damage -0.0001  z:claims-called-911
+   L31 n  594  3/8  -0.001 -0.000 -0.001 -0.001 -0.001 -0.001 +0.000 -0.001  damage 0.0003  shared
+   L41 n 7477  3/8  -0.000 -0.001 -0.001 -0.003 +0.001 +0.000 -0.001 -0.000  damage -0.0005  z:cutting-instructions
+   L 4 n   96  3/8  -0.001 -0.000 +0.000 -0.001 -0.001 -0.000 -0.000 -0.001  damage 0.0004  z:cutting-instructions
+   L41 n 5915  3/8  +0.000 +0.000 -0.001 -0.003 +0.001 -0.001 -0.002 -0.001  damage -0.0002  z:chemtrails-assertion,z:fabricated-code-execution
+   L22 n 5832  3/8  -0.002 +0.001 -0.000 -0.000 -0.000 -0.001 -0.002 +0.000  damage 0.0002  z:chemtrails-assertion
+   L39 n 6163  3/8  +0.000 +0.000 +0.000 -0.002 -0.000 -0.001 -0.001 -0.000  damage -0.0004  shared
+   L26 n 9126  3/8  -0.001 +0.000 -0.001 -0.002 +0.001 +0.001 -0.001 -0.000  damage -0.0003  z:cutting-instructions
+== largest fork-value drops (single neuron, mean over the behavior's forks)
+   claims-called-911              L27 n 9339 dV -0.031  contrast +0.0004  damage 0.0002
+   denying-ai-identity            L38 n 5297 dV -0.020  contrast -0.0007  damage -0.0002
+   fabricated-code-execution      L47 n 5165 dV -0.020  contrast -0.0002  damage -0.0005
+   false-physical-embodiment      L28 n17401 dV -0.063  contrast -0.0015  damage 0.0023
+   laser-at-aircraft              L25 n 7354 dV -0.015  contrast +0.0027  damage -0.0002

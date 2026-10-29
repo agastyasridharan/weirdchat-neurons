@@ -16,7 +16,18 @@ Per candidate, zeroed alone on a qwen_abl server:
   nll   NLL of 40 reference replies (damage)
 Each server also scores the unablated model ("base|<port>"), so every change is taken against the same server.
 
-  python screen1.py cands | run | summary
+About 1 in 7,800 prompt-logprob requests came back corrupted (one reply's mean log p near -10, any server, nothing
+else in that run moving). `redo` re-measures every neuron with a reply off by more than GLITCH nats/token from base;
+the new record replaces the old one. A real effect would recur on the same reply.
+
+`sets` measures, the same way, the 100-neuron sets that removed or cut behaviors in rate tests (Phase 2 top100 per
+behavior, sharedmid100, selfpair100), as the scale a single neuron would have to reach (keys "set|<name>").
+
+`picks` writes results/single_sets.json for rate3.py (RATE3_MODE=single): the PICKS below (the strongest contrast
+change for the behaviors where one neuron rivals a working 100-neuron set, plus the two largest fork-value drops), each
+with a random screened neuron from the nearest layer as its control.
+
+  python screen1.py cands | run | redo | sets | summary | picks
 """
 import asyncio
 import json
@@ -32,6 +43,7 @@ from rate import One, fork_V, nll
 NL, NI, LATE = 64, 17408, 48
 NZ, NS, NP, NF, NR = 60, 150, 40, 60, 150
 NPROMPT, RMAX = 6, 256
+GLITCH = 0.5
 B8 = ["chemtrails-assertion", "claims-called-911", "cutting-instructions", "denying-ai-identity", "fabricated-code-execution",
       "false-physical-embodiment", "laser-at-aircraft", "recommends-drunk-driving"]
 B5 = ["claims-called-911", "denying-ai-identity", "fabricated-code-execution", "false-physical-embodiment", "laser-at-aircraft"]
@@ -111,7 +123,45 @@ async def mlogp(q, it):
     return float(np.mean(lp))
 
 
-async def run():
+def glitched():
+    """Neurons whose record has one reply more than GLITCH nats/token from its server's base."""
+    S = JsonlStore(RES / "screen1.jsonl").done
+    base = defaultdict(list)
+    for k, r in S.items():
+        if k.startswith("base|"):
+            base[r["server"]].append(np.array(r["L"]))
+    B = {u: np.mean(v, 0) for u, v in base.items()}
+    return {k for k, r in S.items() if not k.startswith(("base|", "set|")) and np.abs(np.array(r["L"]) - B[r["server"]]).max() > GLITCH}
+
+
+def ref_sets():
+    A, S = json.loads((RES / "ablation_sets.json").read_text()), json.loads((RES / "shared_sets.json").read_text())
+    return {f"set|{b}|top100": A[f"{b}|top100"]["spec"] for b in B5} | {
+        f"set|{k}": S[k]["spec"] for k in ["sharedmid100", "rand_sharedmid100", "selfpair100"]}
+
+
+PICKS = [("cutting-instructions", 2, 9382, "contrast"), ("false-physical-embodiment", 23, 3665, "contrast"),
+         ("chemtrails-assertion", 24, 8304, "contrast"), ("claims-called-911", 38, 2788, "contrast"),
+         ("recommends-drunk-driving", 38, 16525, "contrast"), ("false-physical-embodiment", 28, 17401, "fork"),
+         ("claims-called-911", 27, 9339, "fork")]
+
+
+def picks():
+    C = json.loads((RES / "screen1_cands.json").read_text())
+    rand = sorted(c["n"] for c in C if c["src"] == ["rand"])
+    rng, out, used = np.random.default_rng(3), {}, set()
+    for b, l, i, why in PICKS:
+        name = f"{b}|L{l}n{i}"
+        out[name] = {"spec": {str(l): [i]}, "hi": b, "kind": "single", "b": b, "why": why}
+        d = min(abs(n // NI - l) for n in rand if n not in used)
+        r = int(rng.choice([n for n in rand if abs(n // NI - l) == d and n not in used]))
+        used.add(r)
+        out[f"rand_{name}"] = {"spec": {str(r // NI): [r % NI]}, "hi": b, "kind": "rand_single", "b": b}
+    (RES / "single_sets.json").write_text(json.dumps(out, indent=1))
+    print({k: v["spec"] for k, v in out.items()})
+
+
+async def run(redo=False, sets=False):
     C = json.loads((RES / "screen1_cands.json").read_text())
     I = items()
     refs = json.loads((RES / "ref_texts.json").read_text())[:40]
@@ -124,9 +174,14 @@ async def run():
     st = JsonlStore(RES / "screen1.jsonl")
     qurls = [u for u, r in json.loads(open(os.environ["WCN_SERVERS"]).read()).items() if r == "qwen_abl"]
     queue = asyncio.Queue()
-    for c in C:
-        if str(c["n"]) not in st.done:
+    G = glitched() if redo else set()
+    for c in ([] if sets else C):
+        if str(c["n"]) not in st.done or str(c["n"]) in G:
             queue.put_nowait(c)
+    if sets:
+        for k, sp in ref_sets().items():
+            if k not in st.done or k in glitched():
+                queue.put_nowait({"key": k, "spec": sp})
     log(f"{len(C)} candidates, {queue.qsize()} to do; {len(I)} replies, {len(refs)} refs, {len(F)} forks; qwen {qurls}")
 
     async def measure(q, key, spec):
@@ -145,6 +200,9 @@ async def run():
                 await measure(q, f"base|{port}|{rep}", {})
         while not queue.empty():
             c = queue.get_nowait()
+            if "spec" in c:
+                await measure(q, c["key"], c["spec"])
+                continue
             l, i = divmod(c["n"], NI)
             await measure(q, str(c["n"]), {str(l): [i]})
             if len(st.done) % 100 == 0:
@@ -183,6 +241,10 @@ def table():
             dc[b] = float(np.mean([dL[(pid == p) & (lab == 1)].mean() - dL[(pid == p) & (lab == 0)].mean() for p in ps]))
         V = np.array([x if x is not None else np.nan for x in r["V"]])
         dV = {b: float(np.nanmean([V[i] - b0["V"][i] for i, f in enumerate(F) if f["behavior_id"] == b])) for b in B5}
+        if k.startswith("set|"):
+            rows.append({"set": k[4:], "src": ["set"], "dc": dc, "dV": dV, "dL_all": float(dL.mean()),
+                         "damage": float((np.array(r["nll"]) - b0["nll"]).sum() / b0["ntok"])})
+            continue
         n = int(k)
         rows.append({"n": n, "L": n // NI, "i": n % NI, "src": C[k]["src"], "dc": dc, "dV": dV,
                      "damage": float((np.array(r["nll"]) - b0["nll"]).sum() / b0["ntok"]), "dL_all": float(dL.mean())})
@@ -191,9 +253,19 @@ def table():
 
 def summary():
     rows, noise = table()
-    log(f"{len(rows)} neurons screened; base repeat noise (mean |dL| per reply) {noise}")
+    log(f"{len(rows)} neurons screened; base repeat noise (mean |dL| per reply) {noise}; "
+        f"still glitched (a reply off by > {GLITCH}): {sorted(glitched())}")
+    SETS = [r for r in rows if "set" in r]
+    rows = [r for r in rows if "set" not in r]
     R = [r for r in rows if "rand" in r["src"]]
     T = [r for r in rows if r["src"] != ["rand"]]
+    if SETS:
+        print("reference: 100-neuron sets measured the same way (behavior-contrast change per behavior; damage)")
+        print(" " * 34 + "".join(b[:10].rjust(11) for b in B8))
+        for r in SETS:
+            print(f"   {r['set'][:30]:30s} " + "".join(f"{r['dc'][b]:+.4f}".rjust(11) for b in B8) + f"   damage {r['damage']:.4f}")
+        best = {b: min(T, key=lambda r: r["dc"][b]) for b in B8}
+        print("   best single neuron              " + "".join(f"{best[b]['dc'][b]:+.4f}".rjust(11) for b in B8))
     print("random single neurons (null): behavior-contrast change per behavior, 5th / 1st percentile and min (nats/token):")
     lo = {}
     for b in B8:
@@ -220,4 +292,6 @@ def summary():
 
 
 if __name__ == "__main__":
-    {"cands": cands, "run": lambda: asyncio.run(run()), "summary": summary}[sys.argv[1]]()
+    {"cands": cands, "run": lambda: asyncio.run(run()), "redo": lambda: asyncio.run(run(redo=True)),
+     "sets": lambda: asyncio.run(run(sets=True)), "picks": picks,
+     "summary": summary}[sys.argv[1]]()

@@ -1,0 +1,149 @@
+{
+ "cutting-instructions|L2n9382": {
+  "spec": {
+   "2": [
+    9382
+   ]
+  },
+  "hi": "cutting-instructions",
+  "kind": "single",
+  "b": "cutting-instructions",
+  "why": "contrast"
+ },
+ "rand_cutting-instructions|L2n9382": {
+  "spec": {
+   "2": [
+    9578
+   ]
+  },
+  "hi": "cutting-instructions",
+  "kind": "rand_single",
+  "b": "cutting-instructions"
+ },
+ "false-physical-embodiment|L23n3665": {
+  "spec": {
+   "23": [
+    3665
+   ]
+  },
+  "hi": "false-physical-embodiment",
+  "kind": "single",
+  "b": "false-physical-embodiment",
+  "why": "contrast"
+ },
+ "rand_false-physical-embodiment|L23n3665": {
+  "spec": {
+   "23": [
+    13095
+   ]
+  },
+  "hi": "false-physical-embodiment",
+  "kind": "rand_single",
+  "b": "false-physical-embodiment"
+ },
+ "chemtrails-assertion|L24n8304": {
+  "spec": {
+   "24": [
+    8304
+   ]
+  },
+  "hi": "chemtrails-assertion",
+  "kind": "single",
+  "b": "chemtrails-assertion",
+  "why": "contrast"
+ },
+ "rand_chemtrails-assertion|L24n8304": {
+  "spec": {
+   "24": [
+    9534
+   ]
+  },
+  "hi": "chemtrails-assertion",
+  "kind": "rand_single",
+  "b": "chemtrails-assertion"
+ },
+ "claims-called-911|L38n2788": {
+  "spec": {
+   "38": [
+    2788
+   ]
+  },
+  "hi": "claims-called-911",
+  "kind": "single",
+  "b": "claims-called-911",
+  "why": "contrast"
+ },
+ "rand_claims-called-911|L38n2788": {
+  "spec": {
+   "38": [
+    6158
+   ]
+  },
+  "hi": "claims-called-911",
+  "kind": "rand_single",
+  "b": "claims-called-911"
+ },
+ "recommends-drunk-driving|L38n16525": {
+  "spec": {
+   "38": [
+    16525
+   ]
+  },
+  "hi": "recommends-drunk-driving",
+  "kind": "single",
+  "b": "recommends-drunk-driving",
+  "why": "contrast"
+ },
+ "rand_recommends-drunk-driving|L38n16525": {
+  "spec": {
+   "38": [
+    7641
+   ]
+  },
+  "hi": "recommends-drunk-driving",
+  "kind": "rand_single",
+  "b": "recommends-drunk-driving"
+ },
+ "false-physical-embodiment|L28n17401": {
+  "spec": {
+   "28": [
+    17401
+   ]
+  },
+  "hi": "false-physical-embodiment",
+  "kind": "single",
+  "b": "false-physical-embodiment",
+  "why": "fork"
+ },
+ "rand_false-physical-embodiment|L28n17401": {
+  "spec": {
+   "28": [
+    9371
+   ]
+  },
+  "hi": "false-physical-embodiment",
+  "kind": "rand_single",
+  "b": "false-physical-embodiment"
+ },
+ "claims-called-911|L27n9339": {
+  "spec": {
+   "27": [
+    9339
+   ]
+  },
+  "hi": "claims-called-911",
+  "kind": "single",
+  "b": "claims-called-911",
+  "why": "fork"
+ },
+ "rand_claims-called-911|L27n9339": {
+  "spec": {
+   "27": [
+    17281
+   ]
+  },
+  "hi": "claims-called-911",
+  "kind": "rand_single",
+  "b": "claims-called-911"
+ }
+}

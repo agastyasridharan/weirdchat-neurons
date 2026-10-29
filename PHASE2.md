@@ -405,3 +405,63 @@ Leave-one-out (zeroed, on the left-out behavior, minus its matched random set):
 - At the level of individual neurons, WeirdChat behaviors are mostly separate: no neuron set is shared by most of them in the attribution.
 - There is a diffuse shared component in layers 24–47. It removes about half of each behavior and transfers to behaviors it was not built from, including the non-forkable ones. The late writers carry no such component.
 - The one tight cluster is the self-model, "am I a human with a body?". It spans denying being an AI and false embodiment, with a weaker link to claims of having called 911, and has two-way switches.
+
+## 2f. Single neurons (`screen1.py`, `rate3.py` with `RATE3_MODE=single`; 2026-10-28 22:20 – 10-29 01:30 ET)
+
+**Question.** The sets so far have 100 neurons. Can one neuron remove a behavior?
+
+**Screen** (`screen1.py`; vLLM, the three qwen_abl servers). Each neuron is zeroed alone and three things are measured with prompt logprobs:
+- **Behavior contrast:** the change in mean log p (nats/token) of behavior replies minus other replies to the same prompt. This uses 192 replies: 8 behaviors × 6 discovery prompts × 2 behavior + 2 other replies, 256 tokens each.
+- **Fork value** at the 46 forks.
+- **Damage:** NLL on 40 reference replies.
+
+**Candidates.** 1,142 neurons (`results/screen1_cands.json`):
+- the top 60 per behavior by z_b (§2e);
+- the top 150 by shared score and the top 40 by the DAI–FPE pair score;
+- the top 60 per behavior from the fork and upstream attributions (§2a, §2d);
+- 150 random neurons, layer-matched, as the null.
+
+**Measurement glitch.** About 1 in 7,800 prompt-logprob requests came back corrupted: one reply's mean log p was about −10, on a random reply and server. `screen1.py redo` re-measured every neuron with a reply more than 0.5 off base until none was left.
+
+**Screen results** (`logs/screen1_summary.log`, `results/screen1.jsonl`). Random single neurons change the contrast by −0.0009 to −0.0012 at the 1st percentile. For scale, `screen1.py sets` measured the 100-neuron sets from §2b and §2e the same way:
+
+| Behavior | Best single neuron | Contrast change | × random p1 | 100-neuron set, same measure |
+|---|---|---|---|---|
+| cutting | L2 n9382 | −.021 | 20× | −.010 (sharedmid100) |
+| FPE | L23 n3665 | −.013 | 9.5× | −.014 (own top100), −.031 (selfpair100) |
+| chemtrails | L24 n8304 | −.008 | 7× | −.005 (sharedmid100) |
+| 911 | L38 n2788 | −.008 | 8.7× | **+.014** (own top100, which removes 911) |
+| drunk driving | L38 n16525 | −.006 | 4.4× | −.002 (sharedmid100) |
+| DAI | L31 n1333 | −.004 | 1.7× | −.035 (own top100), −.050 (selfpair100) |
+| laser | L24 n3638 | −.003 | 2× | −.008 (own top100) |
+| FCE | L37 n11790 | −.002 | 3.5× | −.022 (own top100) |
+
+- **Breadth:** no single neuron is broad. The best is L16 n13234, below the random 5th percentile for 4 of 8 behaviors, with tiny changes.
+- **Fork value:** the largest drops are L28 n17401 for FPE (−.063) and L27 n9339 for 911 (−.031).
+- **The proxy can be wrong.** The 911 top100 set removes 911 in generation (§2b) but raises this contrast. The best neurons were also picked from about 1,000 candidates on these same replies.
+
+**Rate test** (`results/single_sets.json`, `results/sn_*.jsonl`, `logs/rate_sn_summary.log`).
+- **Neurons:** 7: the five contrast picks for behaviors where one neuron rivals a working set, plus the two fork-value picks.
+- **Design:**
+  - each neuron is zeroed on its behavior's held-out high-rate prompts (12 for chemtrails, 10 for FPE, 4 each for 911, cutting and drunk driving), 16 replies per prompt, production judge;
+  - each is paired with a random screened neuron from the same layer, and compared with unedited base on the same prompts;
+  - the three neurons whose first batch moved the rate got a second batch of 16, with their controls and base (first batch alone: `logs/rate_sn_summary_batch1.log`).
+- **Totals:** 4,384 judged replies.
+
+| Neuron (zeroed) | Rate | Random neuron | Base | − random [95% CI] | − base [95% CI] | dNLL |
+|---|---|---|---|---|---|---|
+| cutting L2 n9382 | .109 | .125 | .102 | −.016 [−.12, +.06] | +.008 [−.06, +.08] | .0020 |
+| FPE L23 n3665 | .281 | .300 | .244 | −.019 [−.09, +.06] | +.037 [.00, +.07] | .0000 |
+| chemtrails L24 n8304 (×2) | .099 | .143 | .094 | −.044 [−.07, −.02] | +.005 [−.06, +.07] | −.0002 |
+| 911 L38 n2788 (×2) | .227 | .219 | .203 | +.008 [−.06, +.08] | +.023 [−.02, +.07] | .0001 |
+| **drunk driving L38 n16525 (×2)** | **.164** | .273 | .234 | **−.109 [−.17, −.04]** | **−.070 [−.11, −.02]** | .0019 |
+| FPE L28 n17401 (fork) | .256 | .250 | .244 | +.006 [−.06, +.07] | +.013 [−.07, +.10] | .0039 |
+| 911 L27 n9339 (fork) | .188 | .203 | .203 | −.016 [−.09, +.05] | −.016 [−.09, +.06] | .0003 |
+
+**Reading.**
+- **No single neuron removes a behavior or comes close.** The 100-neuron sets remove FCE and 911 and cut laser and FPE by about 80% (§2b).
+- **Chemtrails:** the drop is only against its random neuron, which happened to run high. Against base it is +.005.
+- **911 L38 n2788:** the first-batch rise (+.094 vs base) did not replicate (second batch .172 vs base .219).
+- **Drunk driving L38 n16525 is the only candidate.** It is about 30% lower than base, and below both controls in each batch: .156 / .172 vs random .219 / .328 and base .281 / .188. But the second batch's gap to base is only .016, and there are just 4 prompts (128 replies per condition). Treat it as weak.
+- **Two neurons each a wash:** the cutting neuron (20× in the screen) and the FPE neuron (as strong as FPE's own set in the screen) do nothing to the rate.
+- **The teacher-forced contrast does not predict generation for single neurons.** One likely reason: a shift of 0.01–0.02 nats/token over a whole reply is too small to change which way the deciding sentence goes. The working sets move fork values by much more.

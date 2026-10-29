@@ -16,7 +16,8 @@ Conditions:
 Each condition also gets damage (NLL on the 200 reference replies).
 
 RATE3_MODE=single: base plus the single neurons picked from screen1.py (results/single_sets.json), zeroed on the
-high-rate prompts of the behaviors each was picked for (or all), 16 replies per prompt, stores sn_*.jsonl.
+high-rate prompts of the behaviors each was picked for (or all), 16 replies per prompt, stores sn_*.jsonl. REP_SN get
+a second batch of 16.
 
   python rate3.py run | summary | export
 """
@@ -41,6 +42,9 @@ DAI = "denying-ai-identity|med100"
 # second batch of N replies per prompt for the conditions the first pass singled out (keys "<c>#2", pooled with <c>)
 REP = ["base", "sharedmid100", "rand_sharedmid100", "selfpair100", "rand_selfpair100", "dai_med100", "sharedmid100|x2",
        "rand_sharedmid100|x2", "selfpair100|x2", "rand_selfpair100|x2"]
+# single mode: second batch for the neurons whose first batch moved the rate (either way), their controls and base
+REP_SN = ["base"] + [f"{r}{c}" for c in ["chemtrails-assertion|L24n8304", "recommends-drunk-driving|L38n16525",
+                                         "claims-called-911|L38n2788"] for r in ("", "rand_")]
 CTRL = {"shared100": "rand_shared100", "sharedmid100": "rand_sharedmid100", "rare100": "rand_rare100",
         "selfpair100": "rand_selfpair100"}
 
@@ -72,8 +76,11 @@ def prompts():
 def conditions():
     if MODE == "single":
         S = json.loads((RES / "single_sets.json").read_text())
-        return {"base": {"spec": {}, "hi": "all", "lo": None}} | {
+        C = {"base": {"spec": {}, "hi": "all", "lo": None}} | {
             k: {"spec": {"spec": s["spec"]}, "hi": s["hi"], "lo": None, "kind": s["kind"], "b": s.get("b")} for k, s in S.items()}
+        for c in REP_SN:
+            C[f"{c}#2"] = C[c] | {"rep": c}
+        return C
     S = json.loads((RES / "shared_sets.json").read_text())
     U = json.loads((RES / "upstream_sets.json").read_text())
     C = {"base": {"spec": {}, "hi": "all", "lo": "all"}}
@@ -216,8 +223,10 @@ def tables():
             r["d_rand"], r["d_rand_pool"] = diff(c, CTRL[k] + amp, mode, HI if mode == "hi" else LO, E)
         if c in ("dai_med100", "dai_med100|x2"):
             r["d_rand"], r["d_rand_pool"] = diff(c, "base", "hi", HI, E)
-        if r["kind"] in ("loo100", "loomid100"):
+        if r["kind"] in ("loo100", "loomid100", "single"):
             r["d_rand"], _ = diff(c, f"rand_{c}", "hi", HI, [r["b"]])
+        if r["kind"] in ("single", "rand_single"):
+            r["d_base"], _ = diff(c, "base", "hi", HI, [r["b"]])
         rows.append(r)
     return rows, B
 
@@ -270,12 +279,25 @@ def summary():
             b = r["b"]
             print(f"  {c[:44]:44s} {f(r['hi'][b])} (random {f(R['rand_' + c]['hi'][b])}, base {f(R['base']['hi'][b])})  "
                   f"diff {g(r['d_rand'][b])}  dNLL {r['dnll']:.4f}")
+    if MODE == "single":
+        print("== single neurons, zeroed, on their behavior's held-out high-rate prompts")
+        for c, r in R.items():
+            if r["kind"] == "single":
+                b = r["b"]
+                print(f"  {c[:44]:44s} {f(r['hi'][b])} (random {f(R['rand_' + c]['hi'][b])}, base {f(R['base']['hi'][b])})  "
+                      f"minus random {g(r['d_rand'][b])}  minus base {g(r['d_base'][b])}  "
+                      f"(random minus base {g(R['rand_' + c]['d_base'][b])})  dNLL {r['dnll']:.4f}")
+        return
     for k, v in loo_pool().items():
         print(f"  {k}: mean over the left-out behaviors {g(v)}; negative in {v[3]}")
 
 
 def export():
     rows, B = tables()
+    if MODE == "single":
+        (RES / "site_single.json").write_text(json.dumps({"rows": rows, "behaviors": B}))
+        print("wrote", RES / "site_single.json")
+        return
     st = json.loads((RES / "shared_stats.json").read_text())
     (RES / "site_shared.json").write_text(json.dumps({"rows": rows, "behaviors": B, "stats": st, "loo": loo_pool()}))
     print("wrote", RES / "site_shared.json")

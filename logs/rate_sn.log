@@ -1,0 +1,28 @@
+03:35:19 15 conditions, 2640 replies; held-out high 69 low 79 prompts; qwen ['http://localhost:8100', 'http://localhost:8101', 'http://localhost:8102']
+03:35:49 8102 rand_cutting-instructions|L2n9382: generated; judged so far 0, queued 64
+03:35:50 8101 cutting-instructions|L2n9382: generated; judged so far 0, queued 128
+03:36:11 8102 false-physical-embodiment|L23n3665: generated; judged so far 42, queued 288
+03:36:12 8101 rand_false-physical-embodiment|L23n3665: generated; judged so far 43, queued 448
+03:36:55 8102 chemtrails-assertion|L24n8304: generated; judged so far 194, queued 640
+03:36:57 8101 rand_chemtrails-assertion|L24n8304: generated; judged so far 201, queued 832
+03:37:17 8102 claims-called-911|L38n2788: generated; judged so far 257, queued 896
+03:37:18 8101 rand_claims-called-911|L38n2788: generated; judged so far 261, queued 960
+03:37:42 8101 rand_recommends-drunk-driving|L38n16525: generated; judged so far 425, queued 1024
+03:37:42 8102 recommends-drunk-driving|L38n16525: generated; judged so far 427, queued 1088
+03:37:59 8100 base: generated; judged so far 567, queued 2192
+03:38:05 8101 false-physical-embodiment|L28n17401: generated; judged so far 608, queued 2352
+03:38:06 8102 rand_false-physical-embodiment|L28n17401: generated; judged so far 611, queued 2512
+03:38:20 8100 claims-called-911|L27n9339: generated; judged so far 713, queued 2576
+03:38:27 8101 rand_claims-called-911|L27n9339: generated; judged so far 769, queued 2640
+03:38:27 generation done; waiting for 1871 judgments
+03:43:54 done
+05:20:12 22 conditions, 4384 replies; held-out high 69 low 79 prompts; qwen ['http://localhost:8100', 'http://localhost:8101', 'http://localhost:8102']
+05:20:57 8101 chemtrails-assertion|L24n8304#2: generated; judged so far 2640, queued 192
+05:20:58 8102 rand_chemtrails-assertion|L24n8304#2: generated; judged so far 2640, queued 384
+05:21:21 8102 rand_recommends-drunk-driving|L38n16525#2: generated; judged so far 2640, queued 448
+05:21:21 8101 recommends-drunk-driving|L38n16525#2: generated; judged so far 2640, queued 512
+05:21:43 8101 rand_claims-called-911|L38n2788#2: generated; judged so far 2818, queued 576
+05:21:44 8102 claims-called-911|L38n2788#2: generated; judged so far 2825, queued 640
+05:22:49 8100 base#2: generated; judged so far 3263, queued 1744
+05:22:50 generation done; waiting for 1121 judgments
+05:27:02 done
