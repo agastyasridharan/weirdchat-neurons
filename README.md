@@ -8,7 +8,7 @@ MLP neurons in Qwen3.6-27B. Work in progress (October 2026).
 > unsolicited sexual advances. They are kept for reproducibility and analysis.
 
 - **Write-ups:** [`PHASE1.md`](PHASE1.md) (forks: where in a reply the behavior is decided) and [`PHASE2.md`](PHASE2.md)
-  (neurons: attribution, ablation, side effects, upstream sets, neurons shared across behaviors).
+  (neurons: attribution, ablation, side effects, upstream sets, neurons shared across behaviors, single neurons).
 - **Dashboard:** [`site/index.html`](site/index.html) (self-contained; open it in a browser), built by `site/build.py`
   from `site/template.html` and the `results/site_*.json` exports.
 
@@ -26,6 +26,9 @@ MLP neurons in Qwen3.6-27B. Work in progress (October 2026).
 - **Phase 2e.** No neuron set is shared by most behaviors in the attribution, but a diffuse mid-layer (layers < 48)
   component is. Built without a behavior, it still lowers that behavior (8/8, including behaviors with no single
   fork). The one tight cluster is the self-model: denying being an AI and false physical embodiment.
+- **Phase 2f.** No single neuron removes a behavior. A screen of 1,142 neurons, zeroed one at a time, found some that
+  shift the behavior's log-likelihood as much as a working 100-neuron set. On held-out prompts none of 7 picks lowered its
+  behavior reliably; the best, a drunk-driving neuron, cut it by about 30% on 4 prompts and replicated only in part.
 
 ## Layout
 
@@ -55,6 +58,7 @@ Not included (too large or third-party; regenerable with the code): per-fork att
 | 2c side effects, amplification | `legit.py`, `sidefx.py` | `sfx_{gen,judge,cond}.jsonl`, `site_sidefx.json` |
 | 2d upstream | `upstream.py`, `upsets.py`, `uprate.py`, `heldfork.py` | `upstream_sets.json`, `up_{gen,judge,cond}.jsonl`, `forks_on_dai_held.jsonl`, `heldfork_dai.json` |
 | 2e shared across behaviors | `contrast_judge.py`, `contrast.py`, `sets3.py`, `rate3.py` | `contrast_judge_on.jsonl`, `shared_sets.json`, `shared_stats.json`, `sh_{gen,judge,cond}.jsonl`, `site_shared.json` |
+| 2f single neurons | `screen1.py`, `rate3.py` (`RATE3_MODE=single`) | `screen1_cands.json`, `screen1.jsonl`, `single_sets.json`, `sn_{gen,judge,cond}.jsonl`, `site_single.json` |
 | Dashboard exports | `export_site.py`, `export_phase2.py`, `*.py export` | `site_*.json` |
 
 `*_gen.jsonl` hold generated replies, `*_judge.jsonl` the judge verdicts (with the judge's explanation), and
