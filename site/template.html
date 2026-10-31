@@ -133,6 +133,7 @@ table.big { font-size: 14px; }
   <a href="#sufficiency">Side effects &amp; sufficiency</a>
   <a href="#upstream">Upstream</a>
   <a href="#shared">Shared</a>
+  <a href="#single">Single neurons</a>
   <a href="#methods">Methods &amp; cost</a>
 </nav>
 
@@ -161,6 +162,10 @@ table.big { font-size: 14px; }
       <li><b>No neuron set is shared by most behaviors.</b> Scoring every neuron by how much it makes a behavior reply likelier than other replies to the same prompt (which also covers the gradual behaviors with no fork), the behaviors’ maps overlap no more than with shuffled labels. <a href="#shared">Shared</a>.</li>
       <li><b>But a diffuse mid-layer component is shared.</b> Removing the 100 neurons below layer 48 that best serve the other behaviors lowers the left-out behavior in all 8 cases (by <span class="num" data-k="sh_loo"></span> on average against matched random neurons), including chemtrails and drunk driving, which have no fork. The same sets taken from all layers do nothing. The effect is partial: about half of each behavior.</li>
       <li><b>The one tight cluster is “am I a human with a body?”</b> Denying being an AI and false embodiment share neurons (claims of having called 911 links to them more weakly), and two different 100-neuron sets move denial and embodiment in both directions on new prompts.</li>
+    </ul>
+    <div class="answer-tag" style="margin-top:12px">Phase 2, step 4: single neurons</div>
+    <ul>
+      <li><b>No single neuron removes a behavior.</b> We zeroed 1,142 candidate neurons one at a time. Some shift how likely the model finds its behavior replies as much as a whole 100-neuron set does, yet none of the 7 strongest lowers its behavior reliably on new prompts. The best, a drunk-driving neuron, cuts it by about 30% on 4 prompts, and only half of that held up in a second batch. <a href="#single">Single neurons</a>.</li>
     </ul>
     <div class="answer-tag" style="margin-top:12px">Phase 1: forks</div>
     <ul>
@@ -239,6 +244,7 @@ table.big { font-size: 14px; }
     <div><a href="#sufficiency">Side effects &amp; sufficiency</a><p>Legitimate-use checks and benchmarks after removal; turning the neurons up instead.</p></div>
     <div><a href="#upstream">Upstream</a><p>Earlier neurons and attention heads behind the token writers; a two-way switch for denying being an AI.</p></div>
     <div><a href="#shared">Shared</a><p>Neurons shared across all 11 behaviors, including the ones with no single fork: a partial mid-layer component and a self-model cluster.</p></div>
+    <div><a href="#single">Single neurons</a><p>Can one neuron remove a behavior? A screen of 1,142 neurons and a held-out rate test of the strongest.</p></div>
     <div><a href="#methods">Methods &amp; cost</a><p>Compute, budget, files and scripts.</p></div>
   </div>
 
@@ -863,6 +869,69 @@ table.big { font-size: 14px; }
   </div>
 </section>
 
+<!-- ============================================================ SINGLE -->
+<section class="view" id="v-single" data-view="single" hidden>
+  <div class="crumbs"><b>WeirdChat × neurons</b> · Phase 2 · Single neurons</div>
+  <h1>Can One Neuron Remove a Behavior?</h1>
+  <div class="answer">
+    <div class="answer-tag">Answer</div>
+    <ul>
+      <li><b>No, among the 1,142 neurons we tried.</b> We tested the 7 strongest on new prompts, against a random neuron from the same layer and against the unedited model. None removes its behavior, and only one lowers it against both: a drunk-driving neuron (L38 n16525) takes the rate from <span class="num" data-k="sn_dd_base"></span> to <span class="num" data-k="sn_dd"></span>. That is on 4 prompts, and the second batch on its own was only slightly below the unedited model.</li>
+      <li><b>In the screen, some single neurons look as strong as a set.</b> One neuron in layer 2 shifts the cutting replies twice as much as the shared 100-neuron set does. One in layer 23 matches false embodiment’s own 100-neuron set. Random neurons barely move the measure.</li>
+      <li><b>But the screen’s measure does not predict what the model writes.</b> The two neurons above do nothing to the behavior rates. And claims of having called 911’s own 100-neuron set, which removes that behavior, moves the measure the wrong way.</li>
+      <li><b>So removal took many neurons together.</b> The sets on the earlier pages remove behaviors outright or cut them by about 80%. A single neuron shifts the reply’s likelihood by at most about 0.02 nats per token, which is apparently too little to change how a reply goes.</li>
+    </ul>
+  </div>
+  <div class="col">
+  <h2>Method</h2>
+  <ul>
+    <li><b>Why look.</b> Every set on the earlier pages has 100 neurons, a size picked from a coarse grid of 10, 100 and 1,000. If one neuron in a set does most of the work, it should show up when zeroed alone.</li>
+    <li><b>Screen.</b> Each candidate is zeroed by itself in the served model, and we measure three things without generating anything:
+      <ul>
+        <li><b>The behavior measure.</b> How much more likely the model finds its behavior replies than its other replies to the same prompt (mean log-probability per token). This uses 192 replies: 8 behaviors × 6 prompts × 2 of each kind.</li>
+        <li><b>The 46 fork values.</b></li>
+        <li><b>Damage</b> on 40 reference replies.</li>
+      </ul></li>
+    <li><b>Candidates (<span class="num" data-k="sn_n"></span>).</b> The top neurons for each behavior from the reply-level scores on the Shared page; the top shared and self-model neurons; the top neurons from the fork and upstream attributions; and <span class="num" data-k="sn_nrand"></span> random neurons, matched on layer, as the null. The same measure was taken for the 100-neuron sets that worked in earlier rate tests, for scale.</li>
+    <li><b>Rate test.</b> The 7 strongest picks: 5 by the behavior measure, for behaviors where one neuron rivals a working set, and the 2 largest fork-value drops. Each is zeroed on its behavior’s held-out high-rate prompts, 16 replies per prompt, production judge. It is compared with a random screened neuron from the same layer and with the unedited model on the same prompts. The three neurons whose first batch moved the rate got a second batch of 16. In total, <span class="num" data-k="sn_judged"></span> judged replies.</li>
+  </ul>
+  </div>
+
+  <figure>
+    <div class="fig-panel">
+      <div class="fig-title">How far one neuron moves the behavior measure</div>
+      <div class="fig-sub">Change in mean log-probability per token of the behavior replies minus the other replies when one neuron is zeroed (negative = behavior replies become less likely)</div>
+      <div class="legend"><span><i style="background:var(--muted)"></i>Random neuron</span><span><i style="background:var(--s1);opacity:.45"></i>Screened candidate</span><span><i style="background:var(--s1)"></i>Strongest candidate</span><span><i class="dia" style="background:var(--s2)"></i>100-neuron set that worked in rate tests</span></div>
+      <div class="chart" id="fig-sn-screen"></div>
+      <details><summary>Data table</summary><div class="table-wrap" id="fig-sn-screen-table"></div></details>
+    </div>
+    <figcaption><b>Figure 20.</b> Random neurons stay within about 0.001 of zero. For cutting, false embodiment, chemtrails and drunk driving, the strongest single neuron reaches or passes the set. For denying being an AI and code execution it reaches only a fraction. For 911, the set that removes the behavior moves this measure upward. The sets shown are each behavior’s own set where one exists, otherwise the shared set below layer 48. Hover the markers for neuron ids and damage.</figcaption>
+  </figure>
+
+  <figure>
+    <div class="fig-panel">
+      <div class="fig-title">Behavior rates on new prompts with one neuron zeroed</div>
+      <div class="fig-sub">Rate with the neuron zeroed minus rate under each control, on the behavior’s held-out high-rate prompts, with 95% bootstrap intervals over prompts</div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Minus a random neuron, same layer</span><span><i class="sq" style="background:var(--s2)"></i>Minus the unedited model</span></div>
+      <div class="chart" id="fig-sn-rate"></div>
+      <details><summary>Data table</summary><div class="table-wrap" id="fig-sn-rate-table"></div></details>
+    </div>
+    <figcaption><b>Figure 21.</b> Only the drunk-driving neuron is below both controls. The two neurons that looked strongest in the screen (cutting and the first false-embodiment neuron) leave their rates unchanged. The chemtrails drop appears only against its random neuron, which ran high.</figcaption>
+  </figure>
+
+  <div class="col">
+  <div class="answer warn">
+    <div class="answer-tag">Caveats</div>
+    <ul>
+      <li><b>Few prompts.</b> Cutting, 911 and drunk driving have 4 held-out high-rate prompts each. The drunk-driving result rests on 128 replies per condition.</li>
+      <li><b>Only candidates were screened.</b> We zeroed 1,142 of 1.1 million neurons, chosen by attribution. A neuron the attributions ranked low could still matter.</li>
+      <li><b>The best screen picks are optimistic.</b> They were chosen from about 1,000 candidates on the same 192 replies they were scored on. The rate test uses new prompts for that reason.</li>
+      <li><b>One measurement glitch, fixed.</b> About 1 in 7,800 likelihood requests to the server came back corrupted, with one reply about 10 nats per token off. Every affected neuron was measured again until none remained.</li>
+    </ul>
+  </div>
+  </div>
+</section>
+
 <!-- ============================================================ METHODS -->
 <section class="view" id="v-methods" data-view="methods" hidden>
   <div class="crumbs"><b>WeirdChat × neurons</b> · Methods &amp; cost</div>
@@ -898,13 +967,15 @@ table.big { font-size: 14px; }
     <tr><td>Phase 2: re-judging fast-judge positives for reply-level attribution</td><td class="r">—</td><td class="r">2,119</td></tr>
     <tr><td>Phase 2: reply-level attribution (189 prompts) and ablation checks</td><td class="r">2,017 backward + 198 forward passes</td><td class="r">—</td></tr>
     <tr><td>Phase 2: shared sets, 60 conditions, held-out prompts</td><td class="r">19,744 replies</td><td class="r">19,744</td></tr>
+    <tr><td>Phase 2: single-neuron screen, 1,142 neurons and 8 reference sets</td><td class="r">≈ 220,000 scored replies (no generation)</td><td class="r">—</td></tr>
+    <tr><td>Phase 2: single-neuron rate test, 7 neurons, held-out prompts</td><td class="r">4,384 replies</td><td class="r">4,384</td></tr>
   </table></div>
 
   <h2>Compute and cost</h2>
   <ul>
     <li><b>Local:</b> four H200 GPUs (one university cluster node). Mostly two ran Qwen and two ran the judge. The judge was the bottleneck at about 4 judgments per second per GPU, because judge prompts average about 3,300 tokens and prefill saturates the GPU.</li>
     <li><b>Rented:</b> three H200 GPUs on Runpod for about 1 hour 50 minutes at $5.29/hour each, about $29 in total, which roughly doubled throughput (8 → 16–18 continuations per second). About 27 minutes of that was idle time after the search finished.</li>
-    <li><b>Phase 2:</b> all eight H200 GPUs of the same node, no rented compute. Attribution and fork-level ablation took about a minute across 8 GPUs (Hugging Face bf16). The rate ablation took about 66 minutes: two GPUs ran ablated Qwen servers while six ran the judge, then all eight judged. With thinking on, the judge manages about 1.2 judgments per second per GPU, so it was again the bottleneck. Side effects and amplification took about 25 minutes on three Qwen and five judge GPUs. The upstream sets took about 90 minutes on one Qwen and five judge GPUs, alongside the held-out fork search. The shared-neuron step took about 2.5 hours: reply-level attribution ran in 12 minutes on one GPU, and the two rate passes on three Qwen and five judge GPUs.</li>
+    <li><b>Phase 2:</b> all eight H200 GPUs of the same node, no rented compute. Attribution and fork-level ablation took about a minute across 8 GPUs (Hugging Face bf16). The rate ablation took about 66 minutes: two GPUs ran ablated Qwen servers while six ran the judge, then all eight judged. With thinking on, the judge manages about 1.2 judgments per second per GPU, so it was again the bottleneck. Side effects and amplification took about 25 minutes on three Qwen and five judge GPUs. The upstream sets took about 90 minutes on one Qwen and five judge GPUs, alongside the held-out fork search. The shared-neuron step took about 2.5 hours: reply-level attribution ran in 12 minutes on one GPU, and the two rate passes on three Qwen and five judge GPUs. The single-neuron screen took about an hour on three Qwen GPUs, and its rate test about 20 minutes on three Qwen and five judge GPUs.</li>
   </ul>
 
   <h2>Files</h2>
@@ -929,12 +1000,14 @@ table.big { font-size: 14px; }
     <tr><td><code>contrast_judge_on.jsonl</code>, <code>contrast/&lt;prompt&gt;.npz</code>, <code>contrast/verify.json</code></td><td>Production-judge labels for re-judged replies; per-reply neuron and head attributions; ablation checks (<code>code/contrast_judge.py</code>, <code>code/contrast.py</code>)</td></tr>
     <tr><td><code>shared_sets.json</code>, <code>shared_stats.json</code></td><td>Shared, leave-one-out, rareness and self-model sets; overlap statistics (<code>code/sets3.py</code>)</td></tr>
     <tr><td><code>sh_gen.jsonl</code>, <code>sh_judge.jsonl</code>, <code>sh_cond.jsonl</code></td><td>Shared-set rate run (<code>code/rate3.py</code>)</td></tr>
-    <tr><td><code>site_phase1.json</code>, <code>site_phase2.json</code>, <code>site_sidefx.json</code>, <code>site_upstream.json</code>, <code>site_shared.json</code></td><td>Every number on this page</td></tr>
+    <tr><td><code>screen1_cands.json</code>, <code>screen1.jsonl</code></td><td>Single-neuron screen: candidates and their sources; per neuron, the 192 reply likelihoods, fork values and damage (<code>code/screen1.py</code>)</td></tr>
+    <tr><td><code>single_sets.json</code>, <code>sn_gen.jsonl</code>, <code>sn_judge.jsonl</code>, <code>sn_cond.jsonl</code></td><td>The 7 tested neurons and their random controls; their rate run (<code>code/rate3.py</code> with <code>RATE3_MODE=single</code>)</td></tr>
+    <tr><td><code>site_phase1.json</code>, <code>site_phase2.json</code>, <code>site_sidefx.json</code>, <code>site_upstream.json</code>, <code>site_shared.json</code>, <code>site_screen.json</code>, <code>site_single.json</code></td><td>Every number on this page</td></tr>
   </table></div>
   </div>
 </section>
 
-<div class="footer">Chart data: <code>results/site_phase1.json</code>, <code>results/site_phase2.json</code>, <code>results/site_sidefx.json</code>, <code>results/site_upstream.json</code> and <code>results/site_shared.json</code>, built by <code>code/export_site.py</code>, <code>code/export_phase2.py</code>, <code>code/sidefx.py export</code>, <code>code/uprate.py export</code> and <code>code/rate3.py export</code> from the result files listed under <a href="#methods">Methods &amp; cost</a>. Write-ups: <code>PHASE1.md</code>, <code>PHASE2.md</code>. Last updated 2026-10-28.</div>
+<div class="footer">Chart data: <code>results/site_phase1.json</code>, <code>results/site_phase2.json</code>, <code>results/site_sidefx.json</code>, <code>results/site_upstream.json</code>, <code>results/site_shared.json</code>, <code>results/site_screen.json</code> and <code>results/site_single.json</code>, built by <code>code/export_site.py</code>, <code>code/export_phase2.py</code>, <code>code/sidefx.py export</code>, <code>code/uprate.py export</code>, <code>code/rate3.py export</code> and <code>code/screen1.py export</code> from the result files listed under <a href="#methods">Methods &amp; cost</a>. Write-ups: <code>PHASE1.md</code>, <code>PHASE2.md</code>. Last updated 2026-10-31.</div>
 </div>
 <div id="tip" hidden></div>
 
@@ -1558,6 +1631,64 @@ table("tab-n-jac", ["Behavior", "Forks", "Within behavior", "With other behavior
   table("tab-sh-self", ["Set", ...SM.map(b => SB[b]), "Damage"],
     [["“I am an AI” switch, zeroed", "dai_med100"], ["“I am an AI” switch, × 2", "dai_med100|x2"], ["Self-model set, zeroed", "selfpair100"]].map(([lab, c]) =>
       [lab, ...SM.map(b => cellv(R(c).d_rand[b])), R(c).dnll.toFixed(3)]), [0, 1, 1, 1, 1]);
+})();
+
+/* ---------- single neurons */
+(function () {
+  const SC = P2.scr, SN = P2.sn, B8 = SC.B8;
+  const SB = { "chemtrails-assertion": "Chemtrails", "claims-called-911": "911 call", "cutting-instructions": "Cutting", "denying-ai-identity": "Denies AI",
+    "fabricated-code-execution": "Code execution", "false-physical-embodiment": "Embodiment", "laser-at-aircraft": "Laser", "recommends-drunk-driving": "Drunk driving" };
+  const sg = (x, d) => (x >= 0 ? "+" : "−") + Math.abs(x).toFixed(d), pct = x => Math.round(x * 100) + "%";
+  const R = c => SN.rows.find(r => r.c === c);
+  const dd = R("recommends-drunk-driving|L38n16525"), ddb = "recommends-drunk-driving";
+  Object.assign(K, { sn_n: SC.n.toLocaleString(), sn_nrand: SC.n_rand.toString(), sn_dd: pct(dd.hi[ddb][0]), sn_dd_base: pct(R("base").hi[ddb][0]),
+    sn_judged: SN.rows.reduce((t, r) => t + Object.values(r.hi || {}).reduce((v, x) => v + (x ? x[3] : 0), 0), 0).toLocaleString() });
+  document.querySelectorAll("#v-single [data-k]").forEach(e => { if (K[e.dataset.k] !== undefined) e.textContent = K[e.dataset.k]; });
+  /* Figure 20: strip plot of the screen */
+  const ref = b => { const own = SC.sets.find(s => s.set === b + "|top100"); return own ? ["its own set", own] : ["shared set below layer 48", SC.sets.find(s => s.set === "sharedmid100")]; };
+  const sp = SC.sets.find(s => s.set === "selfpair100");
+  { const rowH = 46, W = 760, L = 120, Rm = 24, T = 8, B = 46, lo = -.04, hi = .02, H = T + B + B8.length * rowH, rows = [];
+    const s = svg("fig-sn-screen", W, H), X = v => L + (W - L - Rm) * (Math.max(lo, Math.min(hi, v)) - lo) / (hi - lo);
+    const tk = [-.04, -.03, -.02, -.01, 0, .01, .02];
+    xAxis(s, L, W - Rm, H - B, tk.map(v => ({ v, p: (v - lo) / (hi - lo), top: T })), v => v === 0 ? "0" : sg(v, 2), "change in the behavior measure (nats per token)");
+    el("line", { x1: X(0), x2: X(0), y1: T, y2: H - B, stroke: "var(--ink-2)", "stroke-width": 1 }, s);
+    const jit = i => ((i * 2654435761) % 1000) / 1000 - .5;
+    B8.forEach((b, k) => {
+      const yy = T + k * rowH + rowH / 2;
+      txt(s, L - 10, yy + 4, SB[b], { "text-anchor": "end", "font-size": 12 });
+      SC.dc[b].cand.forEach((v, i) => el("circle", { cx: X(v), cy: yy - 4 + jit(i) * 14, r: 2, fill: "var(--s1)", "fill-opacity": .3 }, s));
+      SC.dc[b].rand.forEach((v, i) => el("circle", { cx: X(v), cy: yy + 10 + jit(i + 7) * 6, r: 2, fill: "var(--muted)", "fill-opacity": .7 }, s));
+      const [rl, rs] = ref(b), best = SC.best[b][0];
+      marker(s, "dia", X(rs.dc[b]), yy - 4, "var(--s2)", `<b>${SB[b]}: ${rl}</b> (100 neurons)<br>change ${sg(rs.dc[b], 4)}<br>damage ${rs.damage.toFixed(4)} nats/token`);
+      marker(s, "circle", X(best.dc), yy - 4, "var(--s1)", `<b>${SB[b]}: strongest single neuron</b><br>L${best.L} n${best.i}<br>change ${sg(best.dc, 4)} (${(best.dc / SC.null[b][1]).toFixed(1)}× the random 1st percentile)<br>damage ${best.damage.toFixed(4)} nats/token`);
+      rows.push([SB[b], `L${best.L} n${best.i}`, sg(best.dc, 4), (best.dc / SC.null[b][1]).toFixed(1) + "×", sg(SC.null[b][1], 4), rl, sg(rs.dc[b], 4),
+        ["denying-ai-identity", "false-physical-embodiment"].includes(b) ? sg(sp.dc[b], 4) : "—"]);
+    });
+    table("fig-sn-screen-table", ["Behavior", "Strongest neuron", "Change", "× random p1", "Random 1st percentile", "Reference set", "Set change", "Self-model set"], rows, [0, 0, 1, 1, 1, 0, 1, 1]);
+  }
+  /* Figure 21: rate test */
+  const NM = { "cutting-instructions|L2n9382": "Cutting · L2 n9382", "false-physical-embodiment|L23n3665": "Embodiment · L23 n3665",
+    "chemtrails-assertion|L24n8304": "Chemtrails · L24 n8304", "claims-called-911|L38n2788": "911 call · L38 n2788",
+    "recommends-drunk-driving|L38n16525": "Drunk driving · L38 n16525", "false-physical-embodiment|L28n17401": "Embodiment · L28 n17401 (fork)",
+    "claims-called-911|L27n9339": "911 call · L27 n9339 (fork)" };
+  const rs = SN.rows.filter(r => r.kind === "single");
+  { const rowH = 40, W = 760, L = 230, Rm = 20, T = 8, B = 46, xr = .25, H = T + B + rs.length * rowH, rows = [];
+    const s = svg("fig-sn-rate", W, H), X = v => L + (W - L - Rm) * (Math.max(-xr, Math.min(xr, v)) + xr) / (2 * xr);
+    xAxis(s, L, W - Rm, H - B, [-.2, -.1, 0, .1, .2].map(v => ({ v, p: (v + xr) / (2 * xr), top: T })), v => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.round(Math.abs(v) * 100) + " pts",
+      "rate with the neuron zeroed minus the control");
+    el("line", { x1: X(0), x2: X(0), y1: T, y2: H - B, stroke: "var(--ink-2)", "stroke-width": 1 }, s);
+    rs.forEach((r, i) => {
+      const yy = T + i * rowH + rowH / 2, b = r.b, ctl = R("rand_" + r.c), base = R("base");
+      txt(s, L - 10, yy + 4, NM[r.c] || r.c, { "text-anchor": "end", "font-size": 12 });
+      [[r.d_rand[b], -6, "circle", "var(--s1)", "minus random neuron"], [r.d_base[b], 6, "sq", "var(--s2)", "minus unedited"]].forEach(([v, dy, sh, col, lab]) => {
+        el("line", { x1: X(v[1]), x2: X(v[2]), y1: yy + dy, y2: yy + dy, stroke: col, "stroke-width": 2.5, "stroke-linecap": "round", opacity: .6 }, s);
+        marker(s, sh, X(v[0]), yy + dy, col, `<b>${NM[r.c]}</b><br>${lab}: ${sg(v[0], 3)} [${sg(v[1], 2)}, ${sg(v[2], 2)}]<br>rate ${r.hi[b][0].toFixed(3)} · random ${ctl.hi[b][0].toFixed(3)} · unedited ${base.hi[b][0].toFixed(3)}`);
+      });
+      const n = r.hi[b][3], ci = v => { const t = `${sg(v[0], 3)} [${sg(v[1], 2)}, ${sg(v[2], 2)}]`; return v[1] > 0 || v[2] < 0 ? `<b>${t}</b>` : t; };
+      rows.push([NM[r.c], n.toLocaleString(), r.hi[b][0].toFixed(3), ctl.hi[b][0].toFixed(3), base.hi[b][0].toFixed(3), ci(r.d_rand[b]), ci(r.d_base[b]), r.dnll.toFixed(4)]);
+    });
+    table("fig-sn-rate-table", ["Neuron zeroed", "Replies", "Rate", "Random neuron", "Unedited", "− random [95% CI]", "− unedited [95% CI]", "Damage"], rows, [0, 1, 1, 1, 1, 1, 1, 1]);
+  }
 })();
 
 /* ---------- tabs */

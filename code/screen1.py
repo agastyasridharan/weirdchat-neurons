@@ -27,7 +27,7 @@ behavior, sharedmid100, selfpair100), as the scale a single neuron would have to
 change for the behaviors where one neuron rivals a working 100-neuron set, plus the two largest fork-value drops), each
 with a random screened neuron from the nearest layer as its control.
 
-  python screen1.py cands | run | redo | sets | summary | picks
+  python screen1.py cands | run | redo | sets | summary | picks | export   (export -> results/site_screen.json)
 """
 import asyncio
 import json
@@ -291,7 +291,27 @@ def summary():
         print(f"   {b:30s} L{r['L']:2d} n{r['i']:5d} dV {r['dV'][b]:+.3f}  contrast {r['dc'].get(b, 0):+.4f}  damage {r['damage']:.4f}")
 
 
+def export():
+    rows, _ = table()
+    SETS = [r for r in rows if "set" in r]
+    rows = [r for r in rows if "set" not in r]
+    R = [r for r in rows if "rand" in r["src"]]
+    T = [r for r in rows if r["src"] != ["rand"]]
+    r5 = lambda x: round(float(x), 5)
+    out = {"B8": B8, "B5": B5, "n": len(rows), "n_rand": len(R),
+           "null": {b: [r5(np.percentile([r["dc"][b] for r in R], q)) for q in (5, 1)] + [r5(min(r["dc"][b] for r in R))] for b in B8},
+           "damage_rand": [r5(x) for x in np.percentile([r["damage"] for r in R], [50, 99])],
+           "sets": [{"set": r["set"], "dc": {b: r5(r["dc"][b]) for b in B8}, "damage": r5(r["damage"])} for r in SETS],
+           "dc": {b: {"cand": [r5(r["dc"][b]) for r in T], "rand": [r5(r["dc"][b]) for r in R]} for b in B8},
+           "best": {b: [{"L": r["L"], "i": r["i"], "dc": r5(r["dc"][b]), "damage": r5(r["damage"]), "src": r["src"]}
+                        for r in sorted(T, key=lambda r: r["dc"][b])[:5]] for b in B8},
+           "fork": {b: [{"L": r["L"], "i": r["i"], "dV": r5(r["dV"][b]), "damage": r5(r["damage"])}
+                        for r in sorted(T, key=lambda r: r["dV"][b])[:3]] for b in B5}}
+    (RES / "site_screen.json").write_text(json.dumps(out))
+    print("wrote", RES / "site_screen.json")
+
+
 if __name__ == "__main__":
-    {"cands": cands, "run": lambda: asyncio.run(run()), "redo": lambda: asyncio.run(run(redo=True)),
+    {"cands": cands, "export": export, "run": lambda: asyncio.run(run()), "redo": lambda: asyncio.run(run(redo=True)),
      "sets": lambda: asyncio.run(run(sets=True)), "picks": picks,
      "summary": summary}[sys.argv[1]]()

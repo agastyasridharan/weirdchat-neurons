@@ -63,6 +63,8 @@ d["p2"]["sfx"] = json.loads((here.parent / "results/site_sidefx.json").read_text
 d["p2"]["up"] = json.loads((here.parent / "results/site_upstream.json").read_text())  # uprate.py export
 d["p2"]["held"] = json.loads((here.parent / "results/heldfork_dai.json").read_text())  # heldfork.py
 d["p2"]["sh"] = json.loads((here.parent / "results/site_shared.json").read_text())  # rate3.py export
+d["p2"]["scr"] = json.loads((here.parent / "results/site_screen.json").read_text())  # screen1.py export
+d["p2"]["sn"] = json.loads((here.parent / "results/site_single.json").read_text())  # rate3.py export, RATE3_MODE=single
 READS = {  # short reading of each output direction, only where the top tokens agree; sign-neutral
     (54, 5531): "calling / call", (53, 15385): "报警 (call police) / calling", (43, 11647): "immediately", (63, 12841): "AM / IM",
     (36, 4299): "urgent / emergency", (58, 1358): "reach ↔ call", (55, 5296): "SOS / help", (52, 4299): "emergency", (61, 15915): "are ↔ am",
