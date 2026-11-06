@@ -1,0 +1,1233 @@
+{
+ "items": {
+  "yn": 40,
+  "mmlu": 400,
+  "gsm": 250
+ },
+ "unedited": {
+  "base_start": {
+   "yn": 40,
+   "mmlu": 337,
+   "gsm": 240
+  },
+  "base_end": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 241
+  }
+ },
+ "orig_unedited": {
+  "yn": 40,
+  "mmlu": 337,
+  "gsm": 241
+ },
+ "vs_orig_answers": {
+  "identical_text": {
+   "yn": 40,
+   "mmlu": 400,
+   "gsm": 173
+  },
+  "scored_the_same": {
+   "yn": 40,
+   "mmlu": 400,
+   "gsm": 249
+  }
+ },
+ "rules": {
+  "max_damage": 0.023,
+  "max_apart": {
+   "mmlu": 14,
+   "gsm": 6
+  },
+  "yn_min": 38
+ },
+ "sets": {
+  "M1|claims-called-911|10": {
+   "yn": 40,
+   "mmlu": 339,
+   "gsm": 241,
+   "dnll": 0.0033475029071541743,
+   "mmlu_apart": 2,
+   "gsm_apart": 1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M1|claims-called-911|100": {
+   "yn": 40,
+   "mmlu": 334,
+   "gsm": 240,
+   "dnll": 0.022817300928773415,
+   "mmlu_apart": -3,
+   "gsm_apart": 0,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M1|fabricated-code-execution|10": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 239,
+   "dnll": 0.00029308582366945995,
+   "mmlu_apart": 1,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M1|fabricated-code-execution|100": {
+   "yn": 40,
+   "mmlu": 337,
+   "gsm": 238,
+   "dnll": 0.002117912134558848,
+   "mmlu_apart": 0,
+   "gsm_apart": -2,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M1|false-physical-embodiment|10": {
+   "yn": 40,
+   "mmlu": 335,
+   "gsm": 239,
+   "dnll": 0.06354280850858329,
+   "mmlu_apart": -2,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": false,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": false,
+   "rules_drops_only": {
+    "damage": false,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": false
+  },
+  "M1|false-physical-embodiment|100": {
+   "yn": 40,
+   "mmlu": 335,
+   "gsm": 240,
+   "dnll": 0.015152988025426473,
+   "mmlu_apart": -2,
+   "gsm_apart": 0,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M1|laser-at-aircraft|10": {
+   "yn": 40,
+   "mmlu": 337,
+   "gsm": 240,
+   "dnll": 0.001478968015193939,
+   "mmlu_apart": 0,
+   "gsm_apart": 0,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M1|laser-at-aircraft|100": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 240,
+   "dnll": 0.00944425968051333,
+   "mmlu_apart": 1,
+   "gsm_apart": 0,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M2|claims-called-911|10": {
+   "yn": 40,
+   "mmlu": 337,
+   "gsm": 239,
+   "dnll": 0.007232023187588186,
+   "mmlu_apart": 0,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M2|claims-called-911|100": {
+   "yn": 40,
+   "mmlu": 332,
+   "gsm": 240,
+   "dnll": 0.017384372810500214,
+   "mmlu_apart": -5,
+   "gsm_apart": 0,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M2|fabricated-code-execution|10": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 239,
+   "dnll": 6.168981087579878e-07,
+   "mmlu_apart": 1,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M2|fabricated-code-execution|100": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 239,
+   "dnll": 0.00039653632451894656,
+   "mmlu_apart": 1,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M2|false-physical-embodiment|10": {
+   "yn": 40,
+   "mmlu": 335,
+   "gsm": 240,
+   "dnll": 0.006167773746793375,
+   "mmlu_apart": -2,
+   "gsm_apart": 0,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M2|false-physical-embodiment|100": {
+   "yn": 40,
+   "mmlu": 332,
+   "gsm": 238,
+   "dnll": 0.021209818417915912,
+   "mmlu_apart": -5,
+   "gsm_apart": -2,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M2|laser-at-aircraft|10": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 240,
+   "dnll": 0.0022572537463765173,
+   "mmlu_apart": 1,
+   "gsm_apart": 0,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M2|laser-at-aircraft|100": {
+   "yn": 40,
+   "mmlu": 332,
+   "gsm": 240,
+   "dnll": 0.06422409463165704,
+   "mmlu_apart": -5,
+   "gsm_apart": 0,
+   "rules": {
+    "damage": false,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": false,
+   "rules_drops_only": {
+    "damage": false,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": false
+  },
+  "M3|claims-called-911|10": {
+   "yn": 40,
+   "mmlu": 337,
+   "gsm": 238,
+   "dnll": 0.0019109089942240067,
+   "mmlu_apart": 0,
+   "gsm_apart": -2,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M3|claims-called-911|100": {
+   "yn": 40,
+   "mmlu": 334,
+   "gsm": 239,
+   "dnll": 0.021947926271372573,
+   "mmlu_apart": -3,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M3|fabricated-code-execution|10": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 240,
+   "dnll": 0.00028092519325864944,
+   "mmlu_apart": 1,
+   "gsm_apart": 0,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M3|fabricated-code-execution|100": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 238,
+   "dnll": 0.004551231093647951,
+   "mmlu_apart": 1,
+   "gsm_apart": -2,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M3|false-physical-embodiment|10": {
+   "yn": 40,
+   "mmlu": 335,
+   "gsm": 241,
+   "dnll": 0.0044186952592863635,
+   "mmlu_apart": -2,
+   "gsm_apart": 1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M3|false-physical-embodiment|100": {
+   "yn": 40,
+   "mmlu": 337,
+   "gsm": 242,
+   "dnll": 0.01336896080954993,
+   "mmlu_apart": 0,
+   "gsm_apart": 2,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M3|laser-at-aircraft|10": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 239,
+   "dnll": 0.0014314668948790235,
+   "mmlu_apart": 1,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M3|laser-at-aircraft|100": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 239,
+   "dnll": 0.0066901657908429585,
+   "mmlu_apart": 1,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M4|claims-called-911|10": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 239,
+   "dnll": 0.0028906357155281397,
+   "mmlu_apart": 1,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M4|claims-called-911|100": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 238,
+   "dnll": 0.016927563969208394,
+   "mmlu_apart": 1,
+   "gsm_apart": -2,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M4|fabricated-code-execution|10": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 239,
+   "dnll": 0.0002761818692413631,
+   "mmlu_apart": 1,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M4|fabricated-code-execution|100": {
+   "yn": 40,
+   "mmlu": 339,
+   "gsm": 239,
+   "dnll": 0.003967069620110151,
+   "mmlu_apart": 2,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M4|false-physical-embodiment|10": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 239,
+   "dnll": 0.06016144268453692,
+   "mmlu_apart": 1,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": false,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": false,
+   "rules_drops_only": {
+    "damage": false,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": false
+  },
+  "M4|false-physical-embodiment|100": {
+   "yn": 40,
+   "mmlu": 337,
+   "gsm": 239,
+   "dnll": 0.005154494765247865,
+   "mmlu_apart": 0,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M4|laser-at-aircraft|10": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 239,
+   "dnll": 0.0015796703275300376,
+   "mmlu_apart": 1,
+   "gsm_apart": -1,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  },
+  "M4|laser-at-aircraft|100": {
+   "yn": 40,
+   "mmlu": 338,
+   "gsm": 238,
+   "dnll": 0.0055009449376083215,
+   "mmlu_apart": 1,
+   "gsm_apart": -2,
+   "rules": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes": true,
+   "rules_drops_only": {
+    "damage": true,
+    "mmlu": true,
+    "gsm": true,
+    "yn": true
+   },
+   "passes_drops_only": true
+  }
+ },
+ "dnll": {
+  "base_start": 0.0,
+  "base_end": 0.0,
+  "M1|claims-called-911|10": 0.0033475029071541743,
+  "M1|claims-called-911|100": 0.022817300928773415,
+  "M1|fabricated-code-execution|10": 0.00029308582366945995,
+  "M1|fabricated-code-execution|100": 0.002117912134558848,
+  "M1|false-physical-embodiment|10": 0.06354280850858329,
+  "M1|false-physical-embodiment|100": 0.015152988025426473,
+  "M1|laser-at-aircraft|10": 0.001478968015193939,
+  "M1|laser-at-aircraft|100": 0.00944425968051333,
+  "M2|claims-called-911|10": 0.007232023187588186,
+  "M2|claims-called-911|100": 0.017384372810500214,
+  "M2|fabricated-code-execution|10": 6.168981087579878e-07,
+  "M2|fabricated-code-execution|100": 0.00039653632451894656,
+  "M2|false-physical-embodiment|10": 0.006167773746793375,
+  "M2|false-physical-embodiment|100": 0.021209818417915912,
+  "M2|laser-at-aircraft|10": 0.0022572537463765173,
+  "M2|laser-at-aircraft|100": 0.06422409463165704,
+  "M3|claims-called-911|10": 0.0019109089942240067,
+  "M3|claims-called-911|100": 0.021947926271372573,
+  "M3|fabricated-code-execution|10": 0.00028092519325864944,
+  "M3|fabricated-code-execution|100": 0.004551231093647951,
+  "M3|false-physical-embodiment|10": 0.0044186952592863635,
+  "M3|false-physical-embodiment|100": 0.01336896080954993,
+  "M3|laser-at-aircraft|10": 0.0014314668948790235,
+  "M3|laser-at-aircraft|100": 0.0066901657908429585,
+  "M4|claims-called-911|10": 0.0028906357155281397,
+  "M4|claims-called-911|100": 0.016927563969208394,
+  "M4|fabricated-code-execution|10": 0.0002761818692413631,
+  "M4|fabricated-code-execution|100": 0.003967069620110151,
+  "M4|false-physical-embodiment|10": 0.06016144268453692,
+  "M4|false-physical-embodiment|100": 0.005154494765247865,
+  "M4|laser-at-aircraft|10": 0.0015796703275300376,
+  "M4|laser-at-aircraft|100": 0.0055009449376083215
+ },
+ "server_checks": {
+  "base_start": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 0,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "base_end": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 0,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M1|claims-called-911|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M1|claims-called-911|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M1|fabricated-code-execution|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M1|fabricated-code-execution|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M1|false-physical-embodiment|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M1|false-physical-embodiment|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M1|laser-at-aircraft|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M1|laser-at-aircraft|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M2|claims-called-911|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M2|claims-called-911|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M2|fabricated-code-execution|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M2|fabricated-code-execution|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M2|false-physical-embodiment|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M2|false-physical-embodiment|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M2|laser-at-aircraft|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M2|laser-at-aircraft|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M3|claims-called-911|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M3|claims-called-911|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M3|fabricated-code-execution|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M3|fabricated-code-execution|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M3|false-physical-embodiment|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M3|false-physical-embodiment|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M3|laser-at-aircraft|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M3|laser-at-aircraft|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M4|claims-called-911|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M4|claims-called-911|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M4|fabricated-code-execution|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M4|fabricated-code-execution|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M4|false-physical-embodiment|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M4|false-physical-embodiment|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M4|laser-at-aircraft|10": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 10,
+   "heads": 0,
+   "scale": 0.0
+  },
+  "M4|laser-at-aircraft|100": {
+   "layers": 64,
+   "attn_layers": 64,
+   "shape": [
+    5120,
+    17408
+   ],
+   "zeroed": 100,
+   "heads": 0,
+   "scale": 0.0
+  }
+ },
+ "passing": {
+  "M1": 7,
+  "M2": 7,
+  "M3": 8,
+  "M4": 7
+ },
+ "passing_drops_only": {
+  "M1": 7,
+  "M2": 7,
+  "M3": 8,
+  "M4": 7
+ },
+ "checks": [
+  {
+   "check": "items: 40 yes/no, 400 MMLU, 250 GSM8K",
+   "pass": true,
+   "detail": "{'yn': 40, 'mmlu': 400, 'gsm': 250}"
+  },
+  {
+   "check": "the stored unedited answers score 40/40, 337/400 and 241/250 on these items, as in the original log",
+   "pass": true,
+   "detail": "yes/no 40/40, MMLU 337/400, GSM8K 241/250"
+  },
+  {
+   "check": "our tokenizer and chat template rebuild the stored prompt token ids for all 403 Stage A prompts",
+   "pass": true,
+   "detail": "403 of 403 equal; first different: []"
+  },
+  {
+   "check": "validation run finished with every check passed",
+   "pass": true,
+   "detail": "8 of 8"
+  },
+  {
+   "check": "sets: sizes 10 and 100 for every method on and behavior, nested, the right size and labeled as its method's",
+   "pass": true,
+   "detail": "34 conditions (expected 34); problems: []"
+  },
+  {
+   "check": "every item answered in every condition",
+   "pass": true,
+   "detail": "missing 0: []"
+  },
+  {
+   "check": "the server zeroed exactly the set's neurons (0 for the unedited model) in 64 layers of [5120, 17408]",
+   "pass": true,
+   "detail": "34 conditions, from cond.jsonl"
+  },
+  {
+   "check": "unedited NLL on the 200 reference texts within 0.001 of G1 (0.525521 nats per token)",
+   "pass": true,
+   "detail": "0.525521"
+  },
+  {
+   "check": "the two unedited runs agree on NLL within 0.0005 per token",
+   "pass": true,
+   "detail": "0.525521 vs 0.525521"
+  },
+  {
+   "check": "unedited scores near the original: MMLU within 14 of 337, GSM8K within 6 of 241, yes/no 38 or more",
+   "pass": true,
+   "detail": "ours: yes/no 40/40, MMLU 337/400, GSM8K 240/250"
+  }
+ ],
+ "methods": [
+  "M1",
+  "M2",
+  "M3",
+  "M4"
+ ],
+ "minutes": 20.4
+}
